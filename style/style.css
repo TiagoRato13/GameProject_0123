@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    padding: 0;
+
+    background-image: url(/docs/assets/Images/background.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    
+}
+
+#canvas-screen{
+   height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
