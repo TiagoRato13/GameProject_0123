@@ -16,10 +16,10 @@ startButton.onclick = function () {
 
 document.addEventListener('keydown', (e) => {
     switch(e.code){
-        case 'ArrowLeft':
+        case 'KeyA':
             hero.moveX -= 2;            
             break;
-        case 'ArrowRight':
+        case 'KeyD':
             hero.moveX += 2;
             break;
         case 'Space':

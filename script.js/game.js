@@ -41,6 +41,17 @@ class Game {
         this.ctx.clearRect(0, 0, this.width, this.height);
     }
 
+    updateEnemies() {
+        for(let i = 0; i < this.enemies.length; i++) {
+            this.enemies[i].x -= 1;
+            this.enemies[i].draw();
+        }
+
+        if(this.frames % 240 === 0) {
+            this.enemies.push(new Enemies(1000, 400, 100, 100, 20, 10, 'red', ctx))
+        }
+    }
+
     checkGameOver() {
         const crashed = this.enemies.some((enemy) => {
             return this.hero.crashWith(enemy);

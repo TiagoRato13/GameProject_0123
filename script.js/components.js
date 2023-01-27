@@ -13,6 +13,31 @@ class Component{
         this.image = image;
         this.ctx = ctx;
     }
+
+    top() {
+        return this.y;
+    }
+
+    bottom() {
+        return this.y + this.h
+    }
+
+    left() {
+        return this.x;
+    }
+
+    right() {
+        return this.x + this.w;
+    }
+
+    crashWith(enemy){
+        return !(
+            this.bottom() < enemy.top() ||
+            this.top() > enemy.bottom() ||
+            this.right() < enemy.left() ||
+            this.left() > enemy.right()
+        )
+    }
 } 
 
 class Hero extends Component{
@@ -27,27 +52,23 @@ class Hero extends Component{
     moveRight(){
         this.x += this.moveX;
     }
-    
-    crashWith(enemy){
-        return !(
-            this.bottom() < enemy.top() ||
-            this.top() > enemy.bottom() ||
-            this.right() < enemy.left() ||
-            this.left() > enemy.right()
-        )
-    }
 }
 
 class Enemies extends Component{
-    constructor(x, y, w, h,health, strength, image, ctx){
-        super(x, y, w, h,health, strength, image, ctx)
+    constructor(x, y, w, h,health, strength, color, ctx){
+        super(x, y, w, h,health, strength, color, ctx)
+    }
+
+    draw() {
+        this.ctx.fillStyle = this.color;
+        this.ctx.fillRect(this.x, this.y, this.w, this.h);
     }
 
     levelOne(){
         this.health = this.health;
         this.strength = this.strength;
-        this.image = new Image ();
-        this.image.src = '/docs/assets/Images/New Piskel (11).png';
+        /* this.image = new Image ();
+        this.image.src = '/docs/assets/Images/New Piskel (11).png'; */
     }
     
     levelTwo(){
@@ -71,6 +92,5 @@ class Enemies extends Component{
         this.strength = this.strength * 4;
     }
 
-    
 
 }
