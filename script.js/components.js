@@ -46,7 +46,8 @@ class Hero extends Component{
     }
 
     draw(){
-        this.ctx.fillRect(this.x + 20, this.y - 100, 100, 200)
+        this.ctx.fillStyle = this.image;
+        this.ctx.fillRect(this.x, this.y, this.w, this.h)
     }
 
     moveRight(){
@@ -55,12 +56,12 @@ class Hero extends Component{
 }
 
 class Enemies extends Component{
-    constructor(x, y, w, h,health, strength, color, ctx){
-        super(x, y, w, h,health, strength, color, ctx)
+    constructor(x, y, w, h,health, strength, image, ctx){
+        super(x, y, w, h,health, strength, image, ctx)
     }
 
     draw() {
-        this.ctx.fillStyle = this.color;
+        this.ctx.fillStyle = this.image;
         this.ctx.fillRect(this.x, this.y, this.w, this.h);
     }
 
