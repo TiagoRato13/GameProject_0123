@@ -12,11 +12,25 @@ class Game {
         this.score = 0;
         this.image = new Image();
         this.image.src = '/docs/assets/Images/game-background.jpg'
+        
     }
 
     start(){
-        this.intervalId = setInterval(this.update, 1000 / 60);
+        this.intervalId = setInterval(this.update, 10 / 60);
     }
+
+
+
+    /* drawBackground() {
+        this.x = 0, this.y = 0, this.w = image.width, this.h = image.height;
+        this.render = function () {
+            ctx.drawImage(image, this.x--, 0);
+            if(this.x <= -4) {
+                this.x = 0;
+            }
+        }
+    } */
+
 
     update = () => {
         this.frames++;
@@ -27,6 +41,9 @@ class Game {
         this.updateEnemies();
         this.checkGameOver();
         this.updateScore();
+        this.clearBg();
+        this.moveBackground();
+        this.drawBackground();
     }
 
     drawCanvas(){

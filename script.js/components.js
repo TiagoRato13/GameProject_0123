@@ -11,7 +11,9 @@ class Component{
         this.moveX = 0;
 
         this.image = image;
+        this.image
         this.ctx = ctx;
+        
     }
 
     top() {

@@ -14,7 +14,7 @@ startButton.onclick = function () {
 
 }
 
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keypress', (e) => { 
     switch(e.code){
         case 'KeyA':
             hero.moveX -= 2;            
@@ -22,13 +22,14 @@ document.addEventListener('keydown', (e) => {
         case 'KeyD':
             hero.moveX += 2;
             break;
-        case 'Space':
-            hero.w += 10;
+        case 'KeyQ':
+            hero.w +=70;
             break;
     }
 });
 
 document.addEventListener('keyup', () => {
     hero.moveX = 0;
-    hero.jump = 0
+    hero.jump = 0;
+    hero.w -= 70;
 });
