@@ -26,11 +26,18 @@ class Game {
         this.hero.moveRight();
         this.updateEnemies();
         this.checkGameOver();
-        //this.updateScore();
+        this.updateScore();
     }
 
     drawCanvas(){
         this.ctx.drawImage(this.image, 0, 0);
+        ctx.font = 'bold 45px sens-serif';
+        ctx.fillStyle = 'black';
+        ctx.fillText('Score:',65, 45);
+        ctx.fillText(this.score, 195, 49);
+        ctx.fillStyle = 'white';
+        ctx.fillText('Score:',70, 50);
+        ctx.fillText(this.score,200, 54);
     }
 
     stop() {
@@ -49,6 +56,10 @@ class Game {
 
         if(this.frames % 240 === 0) {
             this.enemies.push(new Enemies(1000, 400, 100, 100, 20, 50, 'red', this.ctx))
+        }
+
+        if(this.frames % 30 === 0) {
+            this.score++;
         }
     }
 
