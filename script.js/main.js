@@ -4,13 +4,15 @@ const canvas = document.getElementById('canvas');
 
 const ctx = canvas.getContext('2d');
 
-const startButton = document.getElementById('start-button');
-
 const hero = new Hero(150, 300, 100, 200, 150, 10, 'black',ctx);
 
-let screen = document.getElementById('canvas')
+let screen = document.getElementById('canvas-screen');
+let title = document.getElementById('game-title');
+let startButton = document.getElementById('start-button');
 startButton.onclick = function () {
-    canvas.classList.toggle('visibility')
+    screen.classList.toggle('visibility');
+    title.classList.toggle('visibility');
+    startButton.classList.toggle('visibility');
     const game = new Game(ctx, canvas.width, canvas.height, hero);
     game.start();
 

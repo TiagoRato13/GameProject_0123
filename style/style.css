@@ -9,13 +9,31 @@ body{
 }
 
 #canvas-screen{
-   height: 95vh;
+   height: 55vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 20vh;
+    left: 50vh;
+}
+
+#game-title{
+    width: 80vw;
 }
 
 .visibility{
     visibility: hidden;
+    display: none;
+}
+
+#start-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4vw;
+    margin-top: 10vh;
+}
+
+#start-button__image {
+    width: 20vw;
 }
 
