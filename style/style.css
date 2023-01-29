@@ -15,3 +15,7 @@ body{
     align-items: center;
 }
 
+.visibility{
+    visibility: hidden;
+}
+

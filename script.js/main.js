@@ -8,7 +8,9 @@ const startButton = document.getElementById('start-button');
 
 const hero = new Hero(150, 300, 100, 200, 150, 10, 'black',ctx);
 
+let screen = document.getElementById('canvas')
 startButton.onclick = function () {
+    canvas.classList.toggle('visibility')
     const game = new Game(ctx, canvas.width, canvas.height, hero);
     game.start();
 
@@ -21,9 +23,6 @@ document.addEventListener('keydown', (e) => {
             break;
         case 'KeyD':
             hero.moveX += 2;
-            break;
-        case 'Space':
-            hero.w += 10;
             break;
     }
 });
