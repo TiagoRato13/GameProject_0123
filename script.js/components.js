@@ -1,17 +1,12 @@
 /** @type {HTMLCanvasElement} */
 
 class Component{
-    constructor(x, y, w, h,health, strength, image, ctx) {
+    constructor(x, y, w, h) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
-        this.health = health;
-        this.strength = strength;
         this.moveX = 0;
-
-        this.image = image;
-        this.ctx = ctx;
     }
 
     top() {
@@ -27,7 +22,7 @@ class Component{
     }
 
     right() {
-        return this.x + this.w;
+        return this.x + (this.w - 20);
     }
 
     crashWith(enemy){
@@ -40,29 +35,21 @@ class Component{
     }
 } 
 
-class Hero extends Component{
-    constructor(x, y, w, h, health, strength, image, ctx){
-        super(x, y, w, h, health, strength, image, ctx)
-    }
-
-    draw(){
-        this.ctx.fillStyle = this.image;
-        this.ctx.fillRect(this.x, this.y, this.w, this.h)
-    }
-
-    moveRight(){
-        this.x += this.moveX;
-    }
-}
-
 class Enemies extends Component{
-    constructor(x, y, w, h,health, strength, image, ctx){
-        super(x, y, w, h,health, strength, image, ctx)
+    constructor(x, y, w, h){
+        super(x, y, w, h)
+        /* this.color = 'red' */
+
+        const monsterOne = new Image();
+        monsterOne.src = "/docs/assets/Images/MonsterOne/monster1-1.png";
+
+        this.image = monsterOne;
     }
 
     draw() {
-        this.ctx.fillStyle = this.image;
-        this.ctx.fillRect(this.x, this.y, this.w, this.h);
+        ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
+        /* ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.w, this.h); */
     }
 
     levelOne(){

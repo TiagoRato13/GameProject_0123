@@ -4,32 +4,48 @@ const canvas = document.getElementById('canvas');
 
 const ctx = canvas.getContext('2d');
 
-const hero = new Hero(150, 300, 100, 200, 150, 10, 'black',ctx);
+const hero = new Mage(150, 310, 100, 200);
 
 let screen = document.getElementById('canvas-screen');
 let title = document.getElementById('game-title');
 let startButton = document.getElementById('start-button');
+let game = null;
+
 startButton.onclick = function () {
     screen.classList.toggle('visibility');
     title.classList.toggle('visibility');
     startButton.classList.toggle('visibility');
-    const game = new Game(ctx, canvas.width, canvas.height, hero);
+    
+    game = new Game(ctx, canvas.width, canvas.height, hero);
+    hero.start();
     game.start();
 
 }
 
-document.addEventListener('keydown', (e) => {
+/* document.addEventListener('load', () => {
+    mageRun;
+}); */
+
+document.addEventListener('keypress', (e) => {
     switch(e.code){
         case 'KeyA':
-            hero.moveX -= 2;            
+             console.log(game.x)
+            if (
+                game.x +4 <= 0
+               ){
+                game.speed = 4; }      
             break;
+        
         case 'KeyD':
-            hero.moveX += 2;
+            if(
+               game.x >= -10800
+            ){
+            game.speed = -4;}
             break;
     }
-});
+})
 
 document.addEventListener('keyup', () => {
-    hero.moveX = 0;
-    hero.jump = 0
+    game.speed = 0;
+   
 });

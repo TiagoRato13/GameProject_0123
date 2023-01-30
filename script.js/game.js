@@ -12,6 +12,8 @@ class Game {
         this.score = 0;
         this.image = new Image();
         this.image.src = '/docs/assets/Images/game-background.jpg'
+        this.speed = 0;
+        this.x = 0;
     }
 
     start(){
@@ -24,13 +26,23 @@ class Game {
         this.drawCanvas();
         this.hero.draw();
         this.hero.moveRight();
-        this.updateEnemies();
+        //this.updateEnemies();
         this.checkGameOver();
         this.updateScore();
+        this.move();
     }
 
+    move() {
+        
+        if( this.x > 3) this.x = 0;
+            this.x += this.speed;
+
+    }
+        //this.x %= this.image.width;
+    
+
     drawCanvas(){
-        this.ctx.drawImage(this.image, 0, 0);
+        this.ctx.drawImage(this.image, this.x-10, 0);
         ctx.font = 'bold 45px sens-serif';
         ctx.fillStyle = 'black';
         ctx.fillText('Score:',65, 45);
@@ -38,6 +50,14 @@ class Game {
         ctx.fillStyle = 'white';
         ctx.fillText('Score:',70, 50);
         ctx.fillText(this.score,200, 54);
+
+        ctx.drawImage(this.image, this.x, 0);
+    if (this.speed < 0) {
+      ctx.drawImage(this.image, this.image.width, 0);
+    } else {
+      ctx.drawImage(this.image, this.image.width, 0);
+    }
+
     }
 
     stop() {
@@ -55,9 +75,11 @@ class Game {
         }
 
         if(this.frames % 240 === 0) {
-            this.enemies.push(new Enemies(1000, 400, 100, 100, 20, 50, 'red', this.ctx))
+            this.enemies.push(new Enemies(1000, 400, 100, 100))
         }
+    }
 
+    updateScore(){
         if(this.frames % 30 === 0) {
             this.score++;
         }
