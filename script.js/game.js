@@ -75,7 +75,7 @@ class Game {
         }
 
         if(this.frames % 240 === 0) {
-            this.enemies.push(new Enemies(1000, 400, 100, 100))
+            this.enemies.push(new Enemies(1000, 400, 100, 100,'red'))
         }
     }
 

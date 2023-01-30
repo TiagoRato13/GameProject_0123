@@ -2,6 +2,7 @@
 
 class Component{
     constructor(x, y, w, h) {
+    constructor(x, y, w, h) {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -44,9 +45,20 @@ class Enemies extends Component{
         monsterOne.src = "/docs/assets/Images/MonsterOne/monster1-1.png";
 
         this.image = monsterOne;
+    constructor(x, y, w, h){
+        super(x, y, w, h)
+        /* this.color = 'red' */
+
+        const monsterOne = new Image();
+        monsterOne.src = "/docs/assets/Images/MonsterOne/monster1-1.png";
+
+        this.image = monsterOne;
     }
 
     draw() {
+        ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
+        /* ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.w, this.h); */
         ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
         /* ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.w, this.h); */
