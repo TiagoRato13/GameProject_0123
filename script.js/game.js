@@ -55,9 +55,11 @@ class Game {
         }
 
         if(this.frames % 240 === 0) {
-            this.enemies.push(new Enemies(1000, 400, 100, 100, 20, 50, 'red', this.ctx))
+            this.enemies.push(new Enemies(1000, 400, 100, 100,'red'))
         }
+    }
 
+    updateScore(){
         if(this.frames % 30 === 0) {
             this.score++;
         }
