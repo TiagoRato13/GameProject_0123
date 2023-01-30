@@ -9,13 +9,14 @@ const hero = new Mage(150, 310, 100, 200, 20, 10);
 let screen = document.getElementById('canvas-screen');
 let title = document.getElementById('game-title');
 let startButton = document.getElementById('start-button');
+let game = null;
 
 startButton.onclick = function () {
     screen.classList.toggle('visibility');
     title.classList.toggle('visibility');
     startButton.classList.toggle('visibility');
     
-    const game = new Game(ctx, canvas.width, canvas.height, hero);
+    game = new Game(ctx, canvas.width, canvas.height, hero);
     hero.start();
     game.start();
 }
@@ -24,18 +25,30 @@ startButton.onclick = function () {
     mageRun;
 }); */
 
-document.addEventListener('keydown', (e) => {
+/* document.addEventListener('load', () => {
+    mageRun;
+}); */
+
+document.addEventListener('keypress', (e) => {
     switch(e.code){
         case 'KeyA':
-            hero.moveX -= 2;            
+             console.log(game.x)
+            if (
+                game.x +4 <= 0
+               ){
+                game.speed = 4; }      
             break;
+        
         case 'KeyD':
-            hero.moveX += 2;
+            if(
+               game.x >= -10800
+            ){
+            game.speed = -4;}
             break;
     }
-});
+})
 
 document.addEventListener('keyup', () => {
-    hero.moveX = 0;
-    hero.jump = 0
+    game.speed = 0;
+   
 });
