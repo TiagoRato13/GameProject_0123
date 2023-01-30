@@ -1,11 +1,15 @@
 /** @type {HTMLCanvasElement} */
 
 class Component{
-    constructor(x, y, w, h) {
+    constructor(x, y, w, h, health, strength) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
+        this.health = health;
+        this.strength = strength;
+        this.intervalId = null;
+        this.frames = 0;
         this.moveX = 0;
     }
 
@@ -22,7 +26,7 @@ class Component{
     }
 
     right() {
-        return this.x + (this.w -20);
+        return this.x + (this.w - 20);
     }
 
     crashWith(enemy){
@@ -34,51 +38,3 @@ class Component{
         )
     }
 } 
-
-class Enemies extends Component{
-    constructor(x, y, w, h){
-        super(x, y, w, h)
-        /* this.color = 'red' */
-
-        const monsterOne = new Image();
-        monsterOne.src = "/docs/assets/Images/MonsterOne/monster1-1.png";
-
-        this.image = monsterOne;
-    }
-
-    draw() {
-        ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
-        /* ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, this.w, this.h); */
-    }
-
-    levelOne(){
-        this.health = this.health;
-        this.strength = this.strength;
-        /* this.image = new Image ();
-        this.image.src = '/docs/assets/Images/New Piskel (11).png'; */
-    }
-    
-    levelTwo(){
-        this.health = this.health * 1.5;
-        this.strength = this.strength * 1.5;
-        
-    }
-    
-    levelThree(){
-        this.health = this.health * 2;
-        this.strength = this.strength * 2;
-    }
-    
-    levelFour(){
-        this.health = this.health * 2.7;
-        this.strength = this.strength * 2.7;
-    }
-    
-    boss(){
-        this.health = this.health * 4;
-        this.strength = this.strength * 4;
-    }
-
-
-}

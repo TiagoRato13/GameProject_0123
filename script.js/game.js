@@ -47,15 +47,17 @@ class Game {
     clear() {
         this.ctx.clearRect(0, 0, this.width, this.height);
     }
-
+    
     updateEnemies() {
-        for(let i = 0; i < this.enemies.length; i++) {
-            this.enemies[i].x -= 1;
-            this.enemies[i].draw();
-        }
-
-        if(this.frames % 240 === 0) {
-            this.enemies.push(new Enemies(1000, 400, 100, 100,'red'))
+        if(this.hero.x >= 160) {
+            for(let i = 0; i < this.enemies.length; i++) {
+                this.enemies[i].x -= 1;
+                this.enemies[i].draw();
+            }
+    
+            if(this.frames % 240 === 0) {
+                this.enemies.push(new Enemies(1000, 400, 100, 100, 20, 10))
+            }
         }
     }
 
@@ -71,6 +73,23 @@ class Game {
         });
         if(crashed) {
             this.stop();
+            ctx.font = 'bold 70px arial';
+            ctx.fillStyle = 'black';
+            this.ctx.fillRect(0, 0, 1200, 600);
+            ctx.fillStyle = 'red';
+            ctx.fillText('GAME OVER!',390, 100)
+            ctx.font = '60px arial';
+            ctx.fillStyle = 'white';
+            ctx.fillText('Your final score:', 400, 200);
+            if(this.score > 0 && this.score < 100) {
+                ctx.fillText(this.score,590, 280);
+            } else if(this.score >= 100 || this.score < 1000){
+                ctx.fillText(this.score,195, 530);
+            }else{
+                ctx.fillText(this.score,140, 530);
+            }
+            ctx.lineWidth = 2
+            this.hero.death();
         }
     }
 }

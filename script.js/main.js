@@ -4,7 +4,7 @@ const canvas = document.getElementById('canvas');
 
 const ctx = canvas.getContext('2d');
 
-const hero = new Mage(150, 300, 100, 200, ctx);
+const hero = new Mage(150, 310, 100, 200, 20, 10);
 
 let screen = document.getElementById('canvas-screen');
 let title = document.getElementById('game-title');
@@ -16,8 +16,8 @@ startButton.onclick = function () {
     startButton.classList.toggle('visibility');
     
     const game = new Game(ctx, canvas.width, canvas.height, hero);
+    hero.start();
     game.start();
-
 }
 
 /* document.addEventListener('load', () => {
