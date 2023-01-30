@@ -24,7 +24,7 @@ class Mage extends Component{
         run7.src = "./docs/assets/Images/Lightning Mage/run/Run7.png";
         run8.src = "./docs/assets/Images/Lightning Mage/run/Run8.png";
 
-        this.image = run1
+        this.image = run3
         this.mageRun = [run1, run2, run3, run4, run5, run6, run7, run8];
 
     }
@@ -38,16 +38,3 @@ class Mage extends Component{
         this.x += this.moveX;
     }
 }
-
-/* const run1 = '/docs/assets/Images/Lightning Mage/run/Run1.png';
-const run2 = '/docs/assets/Images/Lightning Mage/run/Run2.png';
-const run3 = '/docs/assets/Images/Lightning Mage/run/Run3.png';
-const run4 = '/docs/assets/Images/Lightning Mage/run/Run4.png';
-const run5 = '/docs/assets/Images/Lightning Mage/run/Run5.png';
-const run6 = '/docs/assets/Images/Lightning Mage/run/Run6.png';
-const run7 = '/docs/assets/Images/Lightning Mage/run/Run7.png';
-const run8 = '/docs/assets/Images/Lightning Mage/run/Run8.png';
-
-
-
-const mageRun = [run1, run2, run3, run4, run5, run6, run7, run8]; */
