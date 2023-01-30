@@ -21,34 +21,23 @@ startButton.onclick = function () {
     game.start();
 }
 
-/* document.addEventListener('load', () => {
-    mageRun;
-}); */
-
-/* document.addEventListener('load', () => {
-    mageRun;
-}); */
-
 document.addEventListener('keypress', (e) => {
     switch(e.code){
         case 'KeyA':
-             console.log(game.x)
-            if (
-                game.x +4 <= 0
-               ){
-                game.speed = 4; }      
+            if (game.x +4 <= 0){
+                game.speed = 4; 
+                game.enemies[i].x -= 50;
+            }      
             break;
         
         case 'KeyD':
-            if(
-               game.x >= -10800
-            ){
-            game.speed = -4;}
+            if( game.x >= -10800){
+                game.speed = -4;
+            }
             break;
     }
 })
 
 document.addEventListener('keyup', () => {
     game.speed = 0;
-   
 });

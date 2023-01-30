@@ -39,7 +39,6 @@ class Game {
 
     }
         //this.x %= this.image.width;
-    
 
     drawCanvas(){
         this.ctx.drawImage(this.image, this.x-10, 0);
@@ -52,12 +51,11 @@ class Game {
         ctx.fillText(this.score,200, 54);
 
         ctx.drawImage(this.image, this.x, 0);
-    if (this.speed < 0) {
-      ctx.drawImage(this.image, this.image.width, 0);
-    } else {
-      ctx.drawImage(this.image, this.image.width, 0);
-    }
-
+        if (this.speed < 0) {
+            ctx.drawImage(this.image, this.image.width, 0);
+        } else {
+            ctx.drawImage(this.image, this.image.width, 0);
+        }
     }
 
     stop() {
