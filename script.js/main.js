@@ -19,7 +19,6 @@ startButton.onclick = function () {
     game = new Game(ctx, canvas.width, canvas.height, hero);
     hero.start();
     game.start();
-    enemies.start();
 }
 
 document.addEventListener('keypress', (e) => {
@@ -27,7 +26,6 @@ document.addEventListener('keypress', (e) => {
         case 'KeyA':
             if (game.x +4 <= 0){
                 game.speed = 4; 
-                game.enemies[i].x -= 50;
             }      
             break;
         
@@ -36,7 +34,7 @@ document.addEventListener('keypress', (e) => {
                 game.speed = -4;
             } else {game.speed = 0}
             break;
-            
+
         case 'Space':
             hero.idle = false;
             hero.attack = true;
