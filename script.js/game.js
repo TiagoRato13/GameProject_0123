@@ -68,7 +68,7 @@ class Game {
     
     updateEnemies() {
         if(this.x <= -250 || this.enemies.visibility === true) {
-            this.enemies.visibility = true;
+            this.enemies.visibility = true
             const total = 2;
 
             for(let i = 0; i < this.enemies.length; i++) {
@@ -80,7 +80,11 @@ class Game {
                 if(this.frames % 120 === 0 && i < total) {
                     this.enemies.push(new Enemies(1000, 400, 100, 100, 30, 10))
                 }
-            }        
+            } 
+            
+            if(this.enemies.length >= 3){
+                this.enemies.visibility === false
+            }
         }
     }
 

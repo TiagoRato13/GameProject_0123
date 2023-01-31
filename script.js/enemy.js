@@ -1,4 +1,7 @@
 class Enemy extends Component{
+
+    // TEST!!!!
+
     constructor(x, y, w, h, health, strength){
         super(x, y, w, h, health, strength)
         this.animation = 1;
