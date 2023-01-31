@@ -17,8 +17,8 @@ startButton.onclick = function () {
     startButton.classList.toggle('visibility');
     
     game = new Game(ctx, canvas.width, canvas.height, hero);
-    game.start();
     hero.start();
+    game.start();
     enemies.start();
 }
 
@@ -36,9 +36,10 @@ document.addEventListener('keypress', (e) => {
                 game.speed = -4;
             }
             break;
+            
         case 'Space':
-            hero.w = 200
-            hero.attack();
+            hero.idle = false;
+            hero.attack = true;
             break;
     }
 })
@@ -46,4 +47,6 @@ document.addEventListener('keypress', (e) => {
 document.addEventListener('keyup', () => {
     game.speed = 0;
     hero.w = 100;
+    hero.idle = true;
+    hero.attack = false;
 });

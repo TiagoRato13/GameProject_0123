@@ -1,11 +1,12 @@
 class Mage extends Component{
-    constructor(x, y, w, h){
-        super(x, y, w, h)
-        this.health = 10;
-        this.strength = 5;
+    constructor(x, y, w, h, health, strength){
+        super(x, y, w, h, health, strength)
         this.intervalId = null;
         this.frames = 0;
         this.animation = 0;
+        this.idle = true;
+        this.attack = false;
+        this.death = false;
         
         //IDLE
         const idle1 = new Image();
@@ -59,10 +60,14 @@ class Mage extends Component{
         death5.src = "/docs/assets/Images/Lightning Mage/death/death5.png";
         death6.src = "/docs/assets/Images/Lightning Mage/death/death6.png";
 
+        const attack1 = new Image();
+        attack1.src = '/docs/assets/Images/Lightning Mage/attack/attack4.png'
+
         this.image = idle1;
         this.mageRun = [run1, run2, run3, run4, run5, run6, run7, run8];
         this.mageIdle = [idle1, idle2, idle3, idle4, idle5, idle6, idle7];
         this.mageDeath = [death1, death2, death3, death4, death5, death6];
+        this.mageAttack = [attack1]
     }
 
     start(){
@@ -72,28 +77,32 @@ class Mage extends Component{
     update = () => {
         this.frames++;
         this.draw();
-        this.clear()
     }
 
-    clear() {
-        ctx.clearRect(0, 0, this.width, this.height);
+    draw = () => {
+        if(this.idle) {
+            if(this.frames % 12 === 0) {
+                this.animation = (this.animation + 1) % this.mageIdle.length
+            } 
+    
+            ctx.drawImage(this.mageIdle[this.animation], this.x, this.y, this.w, this.h);
+        }
+
+        if(this.attack) {
+            this.w = 200;
+            ctx.drawImage(this.mageAttack[0], this.x, this.y, this.w, this.h);
+        }
+
+        if(this.death) {
+            /* if(this.death) {
+                if(this.frames % 12 === 0) {
+                    this.animation = (this.animation + 1) % this.mageDeath.length
+                } 
+        
+                ctx.drawImage(this.mageDeath[this.animation], this.x, this.y, this.w, this.h);
+            } */
+        }
     }
-
-    draw(){
-        if(this.frames % 12 === 0) {
-            this.animation = (this.animation + 1) % this.mageIdle.length
-        } 
-
-        ctx.drawImage(this.mageIdle[this.animation], this.x, this.y, this.w, this.h);
-    }
-
-    /* death(){
-        if(this.frames % 12 === 0) {
-            this.animation = (this.animation + 1) % this.mageDeath.length
-        } 
-
-        ctx.drawImage(this.mageDeath[this.animation], this.x, this.y, this.w, this.h);
-    } */
 
     moveRight(){
         this.x += this.moveX;

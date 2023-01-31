@@ -41,18 +41,12 @@ class Game {
         this.ctx.drawImage(this.image, this.x-10, 0);
         ctx.font = 'bold 45px sens-serif';
         ctx.fillStyle = 'black';
-        ctx.fillText('Score:',65, 45);
+        ctx.fillText('Score:', 65, 45);
         ctx.fillText(this.score, 195, 49);
+
         ctx.fillStyle = 'white';
         ctx.fillText('Score:',70, 50);
         ctx.fillText(this.score,200, 54);
-
-        ctx.drawImage(this.image, this.x, 0);
-        if (this.speed < 0) {
-            ctx.drawImage(this.image, this.image.width, 0);
-        } else {
-            ctx.drawImage(this.image, this.image.width, 0);
-        }
     }
 
     stop() {
@@ -66,14 +60,18 @@ class Game {
     updateEnemies() {
         if(this.x <= -250 || this.enemies.visibility === true) {
             this.enemies.visibility = true;
+            const total = 2;
 
             for(let i = 0; i < this.enemies.length; i++) {
                 this.enemies[i].x -= 1;
                 this.enemies[i].draw();
             }
     
-            if(this.frames % 240 === 0) {
-                this.enemies.push(new Enemies(1000, 400, 100, 100, 20, 10))
+            for (let i = 0; i < total; i++){
+                if(this.frames % 240 === 0) {
+                    this.enemies.push(new Enemies(1000, 400, 100, 100, 30, 10))
+
+                }
             }
         }
     }
@@ -88,7 +86,7 @@ class Game {
         const crashed = this.enemies.some((enemy) => {
             return this.hero.crashWith(enemy);
         });
-        if(crashed) {
+        if(crashed && this.hero.w === 100) {
             this.stop();
             ctx.font = 'bold 70px arial';
             ctx.fillStyle = 'black';
@@ -106,7 +104,14 @@ class Game {
                 ctx.fillText(this.score,140, 530);
             }
             ctx.lineWidth = 2
-            this.hero.death();
+            this.hero.remove(draw);
+        }else if (crashed && this.hero.w === 200){
+            this.enemies[0].health -= 1;
+            if(this.enemies[0].health <= 0){
+                this.enemies.shift();
+
+            }
+            
         }
     }
 }
