@@ -9,12 +9,12 @@ class Game {
         this.intervalId = null;
         this.frames = 0;
         this.enemies = [];
-        this.score = 0;
+        this.score = 1000;
         this.image = new Image();
         this.image.src = '/docs/assets/Images/game-background.jpg'
         this.speed = 0;
         this.x = 0;
-        this.lives = 2;
+        this.lives = 2
     }
 
     start(){
@@ -31,40 +31,32 @@ class Game {
         this.checkGameOver();
         this.updateScore();
         this.move();
-        this.lives();
     }
 
     move() {
-        console.log(this.x)
         if( this.x > 3) this.x = 0;
             this.x += this.speed;
-
     }
-        //this.x %= this.image.width;
 
     drawCanvas(){
         this.ctx.drawImage(this.image, this.x-10, 0);
         ctx.font = 'bold 45px sens-serif';
-
         ctx.fillStyle = 'black';
-        ctx.fillText('Score:',65, 45);
+        ctx.fillText('Score:', 65, 45);
         ctx.fillText(this.score, 195, 49);
+
         ctx.fillStyle = 'white';
         ctx.fillText('Score:',70, 50);
         ctx.fillText(this.score,200, 54);
-        
+
         ctx.fillStyle = 'black';
-        ctx.fillText('Lives:',965, 45);
+        ctx.fillText('Lives:', 965, 45);
         ctx.fillText(this.lives, 1095, 49);
+
         ctx.fillStyle = 'white';
         ctx.fillText('Lives:',970, 50);
         ctx.fillText(this.lives,1100, 54);
-
-        
     }
-
-    /* drawGameOver() {
-        this.ctx.drawImage(this.gameOverImg, 0, 0, 1200, 650); */
 
     stop() {
         clearInterval(this.intervalId);
@@ -75,21 +67,26 @@ class Game {
     }
     
     updateEnemies() {
-        if(this.x <= -250) {
+        if(this.x <= -250 || this.enemies.visibility === true) {
+            this.enemies.visibility = true;
+            const total = 2;
+
             for(let i = 0; i < this.enemies.length; i++) {
                 this.enemies[i].x -= 1;
                 this.enemies[i].draw();
             }
     
-            if(this.frames % 240 === 0) {
-                this.enemies.push(new Enemies(1000, 400, 100, 100, 20, 10))
-            }
+            for (let i = 0; i < total; i++){
+                if(this.frames % 120 === 0 && i < total) {
+                    this.enemies.push(new Enemies(1000, 400, 100, 100, 30, 10))
+                }
+            }        
         }
     }
 
     updateScore(){
         if(this.frames % 30 === 0) {
-            this.score++;
+            this.score--;
         }
     }
 
@@ -97,10 +94,9 @@ class Game {
         const crashed = this.enemies.some((enemy) => {
             return this.hero.crashWith(enemy);
         });
-        if(crashed) {
-            
+        if(crashed && this.hero.w === 100) {
             this.lives--;
-            //this.stop();
+            this.stop();
             ctx.font = 'bold 70px arial';
             ctx.fillStyle = 'black';
             this.ctx.fillRect(0, 0, 1200, 600);
@@ -110,21 +106,22 @@ class Game {
             ctx.fillStyle = 'white';
             ctx.fillText('Your final score:', 400, 200);
             if(this.score > 0 && this.score < 100) {
-                ctx.fillText(this.score,590, 280);
+                ctx.fillText(this.score,490, 280);
             } else if(this.score >= 100 || this.score < 1000){
                 ctx.fillText(this.score,195, 530);
             }else{
                 ctx.fillText(this.score,140, 530);
-
-                
             }
-            /* else if (this.lives === 0) {
-                this.stop()
-                this.drawGameOver(); */
-
-
             ctx.lineWidth = 2
-            this.hero.death();
+            this.hero.remove(draw);
+        }else if (crashed && this.hero.w === 200){
+            this.enemies[0].health -= 1;
+            if(this.enemies[0].health <= 0){
+                this.enemies.shift();
+                this.score++;
+
+            }
+            
         }
     }
 }

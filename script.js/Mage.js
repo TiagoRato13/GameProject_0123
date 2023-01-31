@@ -6,6 +6,8 @@ class Mage extends Component{
         this.intervalId = null;
         this.frames = 0;
         this.animation = 0;
+        this.idle = true;
+        this.death = false;
         
         //IDLE
         const idle1 = new Image();
@@ -72,28 +74,45 @@ class Mage extends Component{
     update = () => {
         this.frames++;
         this.draw();
-        this.clear()
-    }
-
-    clear() {
-        ctx.clearRect(0, 0, this.width, this.height);
     }
 
     draw(){
-        if(this.frames % 12 === 0) {
-            this.animation = (this.animation + 1) % this.mageIdle.length
-        } 
-
-        ctx.drawImage(this.mageIdle[this.animation], this.x, this.y, this.w, this.h);
+        if(this.idle) {
+            if(this.frames % 12 === 0) {
+                this.animation = (this.animation + 1) % this.mageIdle.length
+            } 
+    
+            ctx.drawImage(this.mageIdle[this.animation], this.x, this.y, this.w, this.h);
+        }
     }
 
-    /* death(){
-        if(this.frames % 12 === 0) {
-            this.animation = (this.animation + 1) % this.mageDeath.length
-        } 
+    attack = () => {
+              
+        for(arr in enemies) {             
+            let e = enemies[arr];                         
+            if(e != null) {	                 
+                let a = e.x - this.x;                 
+                let b = e.y - this.y                 
+                if(Math.hypot(a,b) < e.size) {                     
+                    enemies[arr] = null;                     
+                    return true;                 
+                }             
+            }         
+        }         
+        return false;     
+    }
 
-        ctx.drawImage(this.mageDeath[this.animation], this.x, this.y, this.w, this.h);
-    } */
+
+     death(){
+        this.death = true;
+        if(this.death) {
+            if(this.frames % 12 === 0) {
+                this.animation = (this.animation + 1) % this.mageDeath.length
+            } 
+    
+            ctx.drawImage(this.mageDeath[this.animation], this.x, this.y, this.w, this.h);
+        }
+    } 
 
     moveRight(){
         this.x += this.moveX;
