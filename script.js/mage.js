@@ -6,7 +6,7 @@ class Mage extends Component{
         this.intervalId = null;
         this.frames = 0;
         this.animation = 0;
-        
+
         //IDLE
         const idle1 = new Image();
         const idle2 = new Image();
@@ -35,6 +35,8 @@ class Mage extends Component{
          const run7 = new Image();
          const run8 = new Image();
 
+        //2-
+        /* run1.addEventListener("load", () => {}) */
         run1.src = "./docs/assets/Images/Lightning Mage/run/Run1.png";
         run2.src = "./docs/assets/Images/Lightning Mage/run/Run2.png";
         run3.src = "./docs/assets/Images/Lightning Mage/run/Run3.png";
