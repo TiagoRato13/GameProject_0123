@@ -17,8 +17,9 @@ startButton.onclick = function () {
     startButton.classList.toggle('visibility');
     
     game = new Game(ctx, canvas.width, canvas.height, hero);
-    hero.start();
     game.start();
+    hero.start();
+    enemies.start();
 }
 
 document.addEventListener('keypress', (e) => {
@@ -35,9 +36,14 @@ document.addEventListener('keypress', (e) => {
                 game.speed = -4;
             }
             break;
+        case 'Space':
+            hero.w = 200
+            hero.attack();
+            break;
     }
 })
 
 document.addEventListener('keyup', () => {
     game.speed = 0;
+    hero.w = 100;
 });

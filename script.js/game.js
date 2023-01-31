@@ -33,12 +33,9 @@ class Game {
     }
 
     move() {
-        console.log(this.x)
         if( this.x > 3) this.x = 0;
             this.x += this.speed;
-
     }
-        //this.x %= this.image.width;
 
     drawCanvas(){
         this.ctx.drawImage(this.image, this.x-10, 0);
@@ -67,7 +64,9 @@ class Game {
     }
     
     updateEnemies() {
-        if(this.x <= -250) {
+        if(this.x <= -250 || this.enemies.visibility === true) {
+            this.enemies.visibility = true;
+
             for(let i = 0; i < this.enemies.length; i++) {
                 this.enemies[i].x -= 1;
                 this.enemies[i].draw();
