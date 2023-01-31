@@ -14,8 +14,10 @@ class Game {
         this.image.src = '/docs/assets/Images/game-background.jpg'
         this.speed = 0;
         this.x = 0;
-        this.total = 0;
+        this.total = 2;
         this.updateEnemy = true;
+        this.enemies.visibility = false;
+        this.checkpoints = [-252, -1008]
     }
 
     start(){
@@ -28,9 +30,7 @@ class Game {
         this.drawCanvas();
         this.hero.draw();
         this.hero.moveRight();
-        if(this.updateEnemy) {
-            this.updateEnemies();
-        }
+        this.updateEnemies();
         this.checkGameOver();
         this.updateScore();
         this.move();
@@ -62,23 +62,20 @@ class Game {
     }
     
     updateEnemies() {
-        if(this.x <= -250 || this.enemies.visibility === true) {
-            this.enemies.visibility = true;
-
-            for(let i = 0; i < this.enemies.length; i++) {
-                this.enemies[i].x -= 1;
-                this.enemies[i].draw();
-            }
-    
-            for (let i = 0; i < 2; i++){
-                if(this.frames % 120 === 0 && i === 0) {
-                    this.enemies.push(new Enemies(1000, 400, 100, 100, 30, 10))
-                    console.log(i)
-                }
-            }     
-            /* this.updateEnemy = false; */
+        for(let i = 0; i < this.enemies.length; i++) {
+            this.enemies[i].x -= 1;
+            this.enemies[i].draw();
         }
-   
+        if(this.x === this.checkpoints[0]) {
+            this.checkpoints.shift()
+            console.log(this.x)
+            console.log(this.checkpoints)
+            for (let i = 0; i <= this.total; i++){
+                this.enemies.push(new Enemies(1000 + i * 100 , 400, 100, 100, 30, 10))
+
+            }   
+            this.total+= 3;            
+        }
     }
 
     updateScore(){
