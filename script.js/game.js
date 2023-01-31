@@ -77,16 +77,11 @@ class Game {
             }
     
             for (let i = 0; i < total; i++){
-                if(this.frames % 120 === 0 && i < total) {
-                if(this.frames % 120 === 0 && i < total) {
+                                if(this.frames % 120 === 0 && i < total) {
                     this.enemies.push(new Enemies(1000, 400, 100, 100, 30, 10))
                 }
-            } 
             
-            if(this.enemies.length >= 3){
-                this.enemies.visibility === false
-            }
-        }
+           }
     }
 
     updateScore(){

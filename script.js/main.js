@@ -34,7 +34,7 @@ document.addEventListener('keypress', (e) => {
         case 'KeyD':
             if( game.x >= -10800){
                 game.speed = -4;
-            }
+            } else {game.speed = 0}
             break;
             
         case 'Space':
