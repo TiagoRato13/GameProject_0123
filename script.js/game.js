@@ -9,11 +9,13 @@ class Game {
         this.intervalId = null;
         this.frames = 0;
         this.enemies = [];
-        this.score = 100;
+        this.score = 1000;
         this.image = new Image();
         this.image.src = '/docs/assets/Images/game-background.jpg'
         this.speed = 0;
         this.x = 0;
+        this.total = 0;
+        this.updateEnemy = true;
     }
 
     start(){
@@ -26,7 +28,9 @@ class Game {
         this.drawCanvas();
         this.hero.draw();
         this.hero.moveRight();
-        this.updateEnemies();
+        if(this.updateEnemy) {
+            this.updateEnemies();
+        }
         this.checkGameOver();
         this.updateScore();
         this.move();
@@ -60,23 +64,25 @@ class Game {
     updateEnemies() {
         if(this.x <= -250 || this.enemies.visibility === true) {
             this.enemies.visibility = true;
-            const total = 2;
 
             for(let i = 0; i < this.enemies.length; i++) {
                 this.enemies[i].x -= 1;
                 this.enemies[i].draw();
             }
     
-            for (let i = 0; i < total; i++){
-                if(this.frames % 120 === 0 && i < total) {
+            for (let i = 0; i < 2; i++){
+                if(this.frames % 120 === 0 && i === 0) {
                     this.enemies.push(new Enemies(1000, 400, 100, 100, 30, 10))
+                    console.log(i)
                 }
-            }        
+            }     
+            /* this.updateEnemy = false; */
         }
+   
     }
 
     updateScore(){
-        if(this.frames % 30 === 0) {
+        if(this.frames % 50 === 0) {
             this.score--;
         }
     }

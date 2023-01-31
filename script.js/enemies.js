@@ -17,8 +17,7 @@ class Enemies extends Component{
     draw(){
         this.frames++;
         this.animation = this.monsterWalk[Math.floor(this.frames % 45 / 15)]
-        ctx.drawImage(this.animation, this.x, this.y, this.w, this.h);
-        
+        ctx.drawImage(this.animation, this.x, this.y, this.w, this.h);      
     }
 
 }
