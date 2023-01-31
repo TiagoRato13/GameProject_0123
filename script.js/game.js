@@ -14,6 +14,7 @@ class Game {
         this.image.src = '/docs/assets/Images/game-background.jpg'
         this.speed = 0;
         this.x = 0;
+        this.lives = 2;
     }
 
     start(){
@@ -30,6 +31,7 @@ class Game {
         this.checkGameOver();
         this.updateScore();
         this.move();
+        this.lives();
     }
 
     move() {
@@ -43,20 +45,26 @@ class Game {
     drawCanvas(){
         this.ctx.drawImage(this.image, this.x-10, 0);
         ctx.font = 'bold 45px sens-serif';
+
         ctx.fillStyle = 'black';
         ctx.fillText('Score:',65, 45);
         ctx.fillText(this.score, 195, 49);
         ctx.fillStyle = 'white';
         ctx.fillText('Score:',70, 50);
         ctx.fillText(this.score,200, 54);
+        
+        ctx.fillStyle = 'black';
+        ctx.fillText('Lives:',965, 45);
+        ctx.fillText(this.lives, 1095, 49);
+        ctx.fillStyle = 'white';
+        ctx.fillText('Lives:',970, 50);
+        ctx.fillText(this.lives,1100, 54);
 
-        ctx.drawImage(this.image, this.x, 0);
-        if (this.speed < 0) {
-            ctx.drawImage(this.image, this.image.width, 0);
-        } else {
-            ctx.drawImage(this.image, this.image.width, 0);
-        }
+        
     }
+
+    /* drawGameOver() {
+        this.ctx.drawImage(this.gameOverImg, 0, 0, 1200, 650); */
 
     stop() {
         clearInterval(this.intervalId);
@@ -90,7 +98,9 @@ class Game {
             return this.hero.crashWith(enemy);
         });
         if(crashed) {
-            this.stop();
+            
+            this.lives--;
+            //this.stop();
             ctx.font = 'bold 70px arial';
             ctx.fillStyle = 'black';
             this.ctx.fillRect(0, 0, 1200, 600);
@@ -105,7 +115,14 @@ class Game {
                 ctx.fillText(this.score,195, 530);
             }else{
                 ctx.fillText(this.score,140, 530);
+
+                
             }
+            /* else if (this.lives === 0) {
+                this.stop()
+                this.drawGameOver(); */
+
+
             ctx.lineWidth = 2
             this.hero.death();
         }

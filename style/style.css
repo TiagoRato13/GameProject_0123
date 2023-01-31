@@ -47,3 +47,27 @@ body{
     width: 20vw;
 }
 
+
+#restart-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4vw;
+    margin-top: 10vh;
+}
+
+#restart-button > button {
+    background-color: rgba(48, 6, 6, 0.23);
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    border: 3px solid rgb(121, 26, 2);
+    box-shadow: 10px -10px 10px 5px rgba(0, 0, 0, 0.459);
+    padding-top: 10px;
+}
+
+#restart-button__image {
+    width: 20vw;
+}
+
+
+
