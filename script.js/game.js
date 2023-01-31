@@ -63,7 +63,7 @@ class Game {
     
     updateEnemies() {
         for(let i = 0; i < this.enemies.length; i++) {
-            this.enemies[i].x -= 1;
+            this.enemies[i].x -= 1 - this.speed;
             this.enemies[i].draw();
         }
         if(this.x === this.checkpoints[0]) {
