@@ -17,7 +17,8 @@ class Game {
         this.total = 2;
         this.updateEnemy = true;
         this.enemies.visibility = false;
-        this.checkpoints = [-252, -1008]
+        this.checkpoints = [-220, -2228, -4136, -6060, -8052];
+        this.checkpointBoss = [-10520]
     }
 
     start(){
@@ -62,20 +63,22 @@ class Game {
     }
     
     updateEnemies() {
-        for(let i = 0; i < this.enemies.length; i++) {
-            this.enemies[i].x -= 1;
+        console.log(this.x)
+        console.log(this.checkpoints)
+         for(let i = 0; i < this.enemies.length; i++) {
+            
+            this.enemies[i].x -= 1 - this.speed;
+            
             this.enemies[i].draw();
         }
         if(this.x === this.checkpoints[0]) {
             this.checkpoints.shift()
-            console.log(this.x)
-            console.log(this.checkpoints)
             for (let i = 0; i <= this.total; i++){
                 this.enemies.push(new Enemies(1000 + i * 100 , 400, 100, 100, 30, 10))
 
             }   
             this.total+= 3;            
-        }
+        } 
     }
 
     updateScore(){
@@ -104,7 +107,6 @@ class Game {
                 ctx.fillText(this.score,550, 280);
             }
             ctx.lineWidth = 2
-            this.hero.remove(draw);
         }else if (crashed && this.hero.w === 200){
             this.enemies[0].health -= 1;
             if(this.enemies[0].health <= 0){

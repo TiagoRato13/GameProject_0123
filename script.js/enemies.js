@@ -20,4 +20,5 @@ class Enemies extends Component{
         ctx.drawImage(this.animation, this.x, this.y, this.w, this.h);      
     }
 
+
 }
