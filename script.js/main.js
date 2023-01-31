@@ -30,9 +30,9 @@ document.addEventListener('keypress', (e) => {
             break;
         
         case 'KeyD':
-            if( game.x >= -10800){
+            if( game.x >= -10850){
                 game.speed = -4;
-            } else {game.speed = 0}
+            } else game.speed = 0;
             break;
 
         case 'Space':
