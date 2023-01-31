@@ -33,6 +33,16 @@ body{
     margin-top: 10vh;
 }
 
+#start-button > button {
+    background-color: rgba(48, 6, 6, 0.23);
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    border: 3px solid rgb(2, 69, 121);
+    box-shadow: 10px -10px 10px 5px rgba(0, 0, 0, 0.459);
+    padding-top: 10px;
+}
+
 #start-button__image {
     width: 20vw;
 }

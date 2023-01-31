@@ -26,20 +26,19 @@ class Game {
         this.drawCanvas();
         this.hero.draw();
         this.hero.moveRight();
-        //this.updateEnemies();
+        this.updateEnemies();
         this.checkGameOver();
         this.updateScore();
         this.move();
     }
 
     move() {
-        
+        console.log(this.x)
         if( this.x > 3) this.x = 0;
             this.x += this.speed;
 
     }
         //this.x %= this.image.width;
-    
 
     drawCanvas(){
         this.ctx.drawImage(this.image, this.x-10, 0);
@@ -52,12 +51,11 @@ class Game {
         ctx.fillText(this.score,200, 54);
 
         ctx.drawImage(this.image, this.x, 0);
-    if (this.speed < 0) {
-      ctx.drawImage(this.image, this.image.width, 0);
-    } else {
-      ctx.drawImage(this.image, this.image.width, 0);
-    }
-
+        if (this.speed < 0) {
+            ctx.drawImage(this.image, this.image.width, 0);
+        } else {
+            ctx.drawImage(this.image, this.image.width, 0);
+        }
     }
 
     stop() {
@@ -67,15 +65,17 @@ class Game {
     clear() {
         this.ctx.clearRect(0, 0, this.width, this.height);
     }
-
+    
     updateEnemies() {
-        for(let i = 0; i < this.enemies.length; i++) {
-            this.enemies[i].x -= 1;
-            this.enemies[i].draw();
-        }
-
-        if(this.frames % 240 === 0) {
-            this.enemies.push(new Enemies(1000, 400, 100, 100,'red'))
+        if(this.x <= -250) {
+            for(let i = 0; i < this.enemies.length; i++) {
+                this.enemies[i].x -= 1;
+                this.enemies[i].draw();
+            }
+    
+            if(this.frames % 240 === 0) {
+                this.enemies.push(new Enemies(1000, 400, 100, 100, 20, 10))
+            }
         }
     }
 
@@ -91,6 +91,23 @@ class Game {
         });
         if(crashed) {
             this.stop();
+            ctx.font = 'bold 70px arial';
+            ctx.fillStyle = 'black';
+            this.ctx.fillRect(0, 0, 1200, 600);
+            ctx.fillStyle = 'red';
+            ctx.fillText('GAME OVER!',390, 100)
+            ctx.font = '60px arial';
+            ctx.fillStyle = 'white';
+            ctx.fillText('Your final score:', 400, 200);
+            if(this.score > 0 && this.score < 100) {
+                ctx.fillText(this.score,590, 280);
+            } else if(this.score >= 100 || this.score < 1000){
+                ctx.fillText(this.score,195, 530);
+            }else{
+                ctx.fillText(this.score,140, 530);
+            }
+            ctx.lineWidth = 2
+            this.hero.death();
         }
     }
 }
