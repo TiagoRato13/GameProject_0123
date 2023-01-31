@@ -78,6 +78,7 @@ class Game {
     
             for (let i = 0; i < total; i++){
                 if(this.frames % 120 === 0 && i < total) {
+                if(this.frames % 120 === 0 && i < total) {
                     this.enemies.push(new Enemies(1000, 400, 100, 100, 30, 10))
                 }
             } 
@@ -90,6 +91,7 @@ class Game {
 
     updateScore(){
         if(this.frames % 30 === 0) {
+            this.score--;
             this.score--;
         }
     }
@@ -122,6 +124,7 @@ class Game {
             this.enemies[0].health -= 1;
             if(this.enemies[0].health <= 0){
                 this.enemies.shift();
+                this.score++;
                 this.score++;
 
             }
