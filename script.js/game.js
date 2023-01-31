@@ -9,7 +9,7 @@ class Game {
         this.intervalId = null;
         this.frames = 0;
         this.enemies = [];
-        this.score = 0;
+        this.score = 100;
         this.image = new Image();
         this.image.src = '/docs/assets/Images/game-background.jpg'
         this.speed = 0;
@@ -68,17 +68,16 @@ class Game {
             }
     
             for (let i = 0; i < total; i++){
-                if(this.frames % 240 === 0) {
+                if(this.frames % 120 === 0 && i < total) {
                     this.enemies.push(new Enemies(1000, 400, 100, 100, 30, 10))
-
                 }
-            }
+            }        
         }
     }
 
     updateScore(){
         if(this.frames % 30 === 0) {
-            this.score++;
+            this.score--;
         }
     }
 
@@ -98,10 +97,8 @@ class Game {
             ctx.fillText('Your final score:', 400, 200);
             if(this.score > 0 && this.score < 100) {
                 ctx.fillText(this.score,590, 280);
-            } else if(this.score >= 100 || this.score < 1000){
-                ctx.fillText(this.score,195, 530);
-            }else{
-                ctx.fillText(this.score,140, 530);
+            } else{
+                ctx.fillText(this.score,550, 280);
             }
             ctx.lineWidth = 2
             this.hero.remove(draw);
@@ -109,6 +106,7 @@ class Game {
             this.enemies[0].health -= 1;
             if(this.enemies[0].health <= 0){
                 this.enemies.shift();
+                this.score++;
 
             }
             
