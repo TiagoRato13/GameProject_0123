@@ -34,6 +34,7 @@ class Mage extends Component{
          const run6 = new Image();
          const run7 = new Image();
          const run8 = new Image();
+         
 
         //2-
         /* run1.addEventListener("load", () => {}) */
