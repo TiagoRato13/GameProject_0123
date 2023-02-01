@@ -24,15 +24,19 @@ startButton.onclick = function () {
 document.addEventListener('keypress', (e) => {
     switch(e.code){
         case 'KeyA':
+            hero.run = true;
+            hero.idle =false;
             if (game.x +4 <= 0){
-                game.speed = 4; 
+                game.speed = 4;
             }      
             break;
         
         case 'KeyD':
+            hero.run = true;
+            hero.idle =false;
             if( game.x >= -10850){
                 game.speed = -4;
-            } else game.speed = 0;
+            } /* else game.speed = 0; */
             break;
 
         case 'Space':
@@ -45,6 +49,7 @@ document.addEventListener('keypress', (e) => {
 document.addEventListener('keyup', () => {
     game.speed = 0;
     hero.w = 100;
-    hero.idle = true;
     hero.attack = false;
-});
+    hero.idle = true;
+    hero.run = false;
+})
