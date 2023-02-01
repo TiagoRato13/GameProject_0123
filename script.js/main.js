@@ -62,6 +62,7 @@ document.addEventListener('keypress', (e) => {
             hero.walk = true;
             hero.idle =false;
             hero.attack = false;
+            hero.run = false;
             if (game.x +4 <= 0){
                 game.speed = 2;
             }      
@@ -71,25 +72,28 @@ document.addEventListener('keypress', (e) => {
             hero.run = true;
             hero.idle =false;
             hero.attack = false;
+            hero.walk = false;
             if( game.x >= -10850){
                 game.speed = -4;
             }
             break;
 
-        case 'Space':
+            case 'Space':
+            hero.attack = true;
             hero.idle = false;
             hero.run = false;
-            hero.attack = true;
+            hero.walk = false;
             game.speed = 0;
             break;
     }
 })
 
 document.addEventListener('keyup', () => {
+  
     game.speed = 0;
     hero.w = 100;
-    hero.attack = false;
     hero.idle = true;
+    hero.attack = false;
     hero.run = false;
     hero.walk = false;
 });

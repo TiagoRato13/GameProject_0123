@@ -101,6 +101,24 @@ class Game {
         }
     }
 
+    died() {
+        this.stop();
+        this.hero.death = true;
+        this.hero.idle=null;
+        this.hero.walk=null;
+        this.hero.run=null;
+        this.hero.attack=null;
+        this.hero.speed=null;
+        ctx.font = 'bold 70px arial';
+        ctx.fillStyle = 'black';
+        this.ctx.fillRect(0, 0, 1200, 600);
+        ctx.fillStyle = 'red';
+        ctx.fillText('GAME OVER!',390, 100)
+        ctx.font = '60px arial';
+        ctx.fillStyle = 'white';
+        ctx.lineWidth = 2
+    }
+
     checkWin(){
         this.stop();
         
@@ -128,32 +146,22 @@ class Game {
         const crashedBoss = this.boss.some((boss) => {
             return this.hero.crashWith(boss);
         });
-
-
         
-        if(crashedEnemies && this.hero.w === 100 || crashedBoss && this.hero.w === 100) {
-            this.stop();
-            this.hero.death = true;
-            this.hero.idle=false;
-            this.hero.walk=false;
-            this.hero.run=false;
-            this.hero.attack=false;
-            this.hero.speed=0;
-            ctx.font = 'bold 70px arial';
-            ctx.fillStyle = 'black';
-            this.ctx.fillRect(0, 0, 1200, 600);
-            ctx.fillStyle = 'red';
-            ctx.fillText('GAME OVER!',390, 100)
-            ctx.font = '60px arial';
-            ctx.fillStyle = 'white';
-            ctx.fillText('Your final score:', 400, 200);
-            if(this.score > 0 && this.score < 100) {
-                ctx.fillText(this.score,590, 280);
-            } else{
-                ctx.fillText(this.score,550, 280);
-            }
-            ctx.lineWidth = 2
-        }else if (crashedEnemies && this.hero.w === 300){
+        if(crashedEnemies && this.hero.w === 100) {
+            console.log(this.hero.health)
+            this.hero.health -= 2;
+            if(this.hero.health < 0) {
+                this.died()
+           }
+        }else if (crashedEnemies && this.hero.w === 160){
+            console.log(this.hero.health)
+            this.hero.health -= 4;
+            if(this.hero.health < 0) {
+                this.died()
+           }
+        }
+        
+        else if (crashedEnemies && this.hero.w === 300){
             this.enemies[0].health -= 1;
             if(this.enemies[0].health <= 0){
                 this.enemies.shift();
@@ -162,14 +170,8 @@ class Game {
             
         }else if(crashedBoss && this.hero.w === 100) {
             this.hero.health -= 5;
-            if(this.hero.health <= 0){
-                this.stop();
-                resetButtons.classList.remove('visibility');
-                ctx.font = 'bold 70px arial';
-                ctx.fillStyle = 'black';
-                this.ctx.fillRect(0, 0, 1200, 600);
-                ctx.fillStyle = 'red';
-                ctx.fillText('GAME OVER!',390, 100)
+            if(this.hero.health < 0){
+                this.died()
             }   
 
         }else if(crashedBoss && this.hero.w === 300) {
@@ -178,7 +180,6 @@ class Game {
                 this.boss.shift();
                 this.score++;
                 this.checkWin();
-
             }
         }
     }
