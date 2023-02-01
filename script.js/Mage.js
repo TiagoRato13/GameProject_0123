@@ -7,6 +7,7 @@ class Mage extends Component{
         this.idle = true;
         this.attack = false;
         this.run = false;
+        this.walk = false;
         this.death = false;
 
         
@@ -59,6 +60,25 @@ class Mage extends Component{
         run7.src = "./docs/assets/Images/Lightning Mage/run/Run7.png";
         run8.src = "./docs/assets/Images/Lightning Mage/run/Run8.png";
 
+
+        //WALK
+        const walk1 = new Image();
+        const walk2 = new Image();
+        const walk3 = new Image();
+        const walk4 = new Image();
+        const walk5 = new Image();
+        const walk6 = new Image();
+        const walk7 = new Image();
+
+        walk1.src = "./docs/assets/Images/Lightning Mage/walk/walk1.png";
+        walk2.src = "./docs/assets/Images/Lightning Mage/walk/walk2.png";
+        walk3.src = "./docs/assets/Images/Lightning Mage/walk/walk3.png";
+        walk4.src = "./docs/assets/Images/Lightning Mage/walk/walk4.png";
+        walk5.src = "./docs/assets/Images/Lightning Mage/walk/walk5.png";
+        walk6.src = "./docs/assets/Images/Lightning Mage/walk/walk6.png";
+        walk7.src = "./docs/assets/Images/Lightning Mage/walk/walk7.png";
+
+
         //DEATH
         const death1 = new Image();
         const death2 = new Image();
@@ -78,10 +98,11 @@ class Mage extends Component{
         attack1.src = '/docs/assets/Images/Lightning Mage/attack/attack4.png' */
 
         //this.image = idle1;
-        this.mageRun = [run1, run2, run3, run4, run5, run6, run7, run8];
         this.mageIdle = [idle1, idle2, idle3, idle4, idle5, idle6, idle7];
-        this.mageDeath = [death1, death2, death3, death4, death5, death6];
         this.mageAttack = [attack1, attack2, attack3, attack4];
+        this.mageRun = [run1, run2, run3, run4, run5, run6, run7, run8];
+        this.mageWalk = [walk1, walk2, walk3, walk4, walk5, walk6, walk7];
+        this.mageDeath = [death1, death2, death3, death4, death5, death6];
     }
 
     start(){
@@ -103,6 +124,14 @@ class Mage extends Component{
             ctx.drawImage(this.mageIdle[this.animation], this.x, this.y, this.w, this.h);
         }
         
+        if(this.attack) {
+               if(this.frames % 9 === 0) {
+                   this.animation = (this.animation + 1) % this.mageAttack.length
+               }
+               this.w = 300;
+               ctx.drawImage(this.mageAttack[this.animation], this.x, this.y, this.w, this.h);
+           }
+
         if(this.run) {
            if(this.frames % 12 === 0) {
                this.animation = (this.animation + 1) % this.mageRun.length
@@ -112,22 +141,23 @@ class Mage extends Component{
            ctx.drawImage(this.mageRun[this.animation], this.x, this.y, this.w, this.h);
        }
 
-         if(this.attack) {
-                if(this.frames % 15 === 0) {
-                    this.animation = (this.animation + 1) % this.mageAttack.length
-                }
-                this.w = 300;
-                ctx.drawImage(this.mageAttack[this.animation], this.x, this.y, this.w, this.h);
-            }
+       if(this.walk) {
+        if(this.frames % 12 === 0) {
+            this.animation = (this.animation + 1) % this.mageWalk.length
+        } 
+        
+        ctx.drawImage(this.mageWalk[this.animation], this.x, this.y, this.w, this.h);
+    }
+
 
         if(this.death) {
-            /* if(this.death) {
-                if(this.frames % 12 === 0) {
-                    this.animation = (this.animation + 1) % this.mageDeath.length
-                } 
-        
+             if(this.death) {
+                if(this.frames % 1 === 0) {
+                    this.animation = (this.animation + 1) % this.mageWalk.length
+                }
+                        
                 ctx.drawImage(this.mageDeath[this.animation], this.x, this.y, this.w, this.h);
-            } */
+            }
         }
     }
 

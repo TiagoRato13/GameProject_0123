@@ -59,11 +59,11 @@ function startGame () {
 document.addEventListener('keypress', (e) => {
     switch(e.code){
         case 'KeyA':
-            hero.run = true;
+            hero.walk = true;
             hero.idle =false;
             hero.attack = false;
             if (game.x +4 <= 0){
-                game.speed = 4;
+                game.speed = 2;
             }      
             break;
         
@@ -91,4 +91,5 @@ document.addEventListener('keyup', () => {
     hero.attack = false;
     hero.idle = true;
     hero.run = false;
-})
+    hero.walk = false;
+});
