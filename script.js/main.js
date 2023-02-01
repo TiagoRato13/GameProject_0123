@@ -4,11 +4,15 @@ const canvas = document.getElementById('canvas');
 
 const ctx = canvas.getContext('2d');
 
+let restart = document.getElementById('reset-button__restart')
+let homeScreen = document.getElementById('reset-button__home')
+
 const hero = new Mage(150, 310, 100, 200, 20, 10);
 
 let screen = document.getElementById('canvas-screen');
 let title = document.getElementById('game-title');
 let startButton = document.getElementById('start-button');
+
 let game = null;
 
 startButton.onclick = function () {

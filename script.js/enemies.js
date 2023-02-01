@@ -13,11 +13,26 @@ class Enemies extends Component{
         monster4.src = "/docs/assets/Images/MonsterOne/monster1-4.png";
         this.animation = monster1;
         this.monsterWalk = [monster1,monster2, monster4];
+
+
+        const boss1 = new Image();
+        const boss2 = new Image();
+
+        boss1.src = '/docs/assets/Images/boss/boss1.png'
+        boss2.src = '/docs/assets/Images/boss/boss2.png'
+
+        this.boss = [boss1, boss2]
     }
     draw(){
         this.frames++;
         this.animation = this.monsterWalk[Math.floor(this.frames % 45 / 15)]
         ctx.drawImage(this.animation, this.x, this.y, this.w, this.h);      
+    }
+
+    drawBoss(){
+        this.frames++;
+        this.animation = this.boss[Math.floor(this.frames % 30 / 15)]
+        ctx.drawImage(this.animation, this.x, this.y, this.w, this.h);  
     }
 
 
