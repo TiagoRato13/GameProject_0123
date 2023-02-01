@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/style.css" />
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div>
-        <img src="/docs/assets/Images/GameTitle.png" alt="" id="game-title">
+      <img src="/docs/assets/Images/GameTitle.png" alt="" id="game-title" />
     </div>
     <div id="canvas-screen" class="visibility">
-        <canvas id="canvas" height="600px" width="1200px" style="border: 10px solid black;"></canvas>
+      <canvas
+        id="canvas"
+        height="600px"
+        width="1200px"
+        style="border: 10px solid black"
+      ></canvas>
     </div>
-    
+
     <div id="start-button">
-        <button><img src="/docs/assets/Images/startButton.png" alt="" id="start-button__image"></button>
+      <button>
+        <img
+          src="/docs/assets/Images/startButton.png"
+          alt=""
+          id="start-button__image"
+        />
+      </button>
     </div>
 
     <div id="reset-button" class="visibility">
-        <button><img src="/docs/assets/Images/restart-button.png" alt="" id="reset-button__restart"></button>
-        <button><img src="/docs/assets/Images/home-screen-button.png" alt="" id="reset-button__home"></button>
+      <!-- <button>
+        <img
+          src="/docs/assets/Images/restart-button.png"
+          alt=""
+          id="reset-button__restart"
+        />
+      </button> -->
+      <button>
+        <img
+          src="/docs/assets/Images/home-screen-button.png"
+          alt=""
+          id="reset-button__home"
+        />
+      </button>
     </div>
 
-    
     <script src="/script.js/components.js"></script>
     <script src="/script.js/mage.js"></script>
     <script src="/script.js/enemies.js"></script>
     <script src="/script.js/game.js"></script>
     <script src="/script.js/main.js"></script>
-</body>
+  </body>
 </html>
