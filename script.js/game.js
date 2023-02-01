@@ -40,7 +40,7 @@ class Game {
     move() {
         if( this.x > 3) this.x = 0;
             this.x += this.speed;
-            
+
     }
 
     drawCanvas(){
@@ -94,6 +94,12 @@ class Game {
         });
         if(crashed && this.hero.w === 100) {
             this.stop();
+            this.hero.death = true;
+            this.hero.idle=false;
+            this.hero.walk=false;
+            this.hero.run=false;
+            this.hero.attack=false;
+            this.hero.speed=0;
             ctx.font = 'bold 70px arial';
             ctx.fillStyle = 'black';
             this.ctx.fillRect(0, 0, 1200, 600);
