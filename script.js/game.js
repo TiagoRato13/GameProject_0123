@@ -29,17 +29,18 @@ class Game {
         this.frames++;
         this.clear();
         this.drawCanvas();
-        this.hero.draw();
         this.hero.moveRight();
         this.updateEnemies();
         this.checkGameOver();
         this.updateScore();
         this.move();
+        this.hero.draw();
     }
 
     move() {
         if( this.x > 3) this.x = 0;
             this.x += this.speed;
+            
     }
 
     drawCanvas(){
