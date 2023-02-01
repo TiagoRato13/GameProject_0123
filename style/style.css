@@ -1,3 +1,11 @@
+/* 
+color button: C09A04
+color glow: 006080 
+glowsize: 163, 51
+
+*/
+
+
 body{
     margin: 0;
     padding: 0;
@@ -47,27 +55,25 @@ body{
     width: 20vw;
 }
 
-
-#restart-button {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 4vw;
-    margin-top: 10vh;
+#reset-button {
+    position: absolute;
+    left: 32vw;
+    top: 65vh;
 }
 
-#restart-button > button {
-    background-color: rgba(48, 6, 6, 0.23);
-    display: flex;
-    justify-content: center;
-    border-radius: 15px;
-    border: 3px solid rgb(121, 26, 2);
-    box-shadow: 10px -10px 10px 5px rgba(0, 0, 0, 0.459);
-    padding-top: 10px;
+#reset-button > button {
+    border: none;
+    background-color: transparent;
+    margin: 0 60px;
 }
 
-#restart-button__image {
-    width: 20vw;
+#reset-button__restart {
+    height: 10vh;
+    z-index: 1;
 }
 
-
+#reset-button__home {
+    height: 10vh;
+    z-index: 1;
+}
 

@@ -1,5 +1,6 @@
 /** @type {HTMLCanvasElement} */
 
+let resetButtons = document.getElementById('reset-button')
 class Game {
     constructor(ctx, width, height, hero) {
         this.ctx = ctx;
@@ -9,14 +10,13 @@ class Game {
         this.intervalId = null;
         this.frames = 0;
         this.enemies = [];
+        this.boss = [];
         this.score = 1000;
         this.image = new Image();
         this.image.src = '/docs/assets/Images/game-background.jpg'
         this.speed = 0;
         this.x = 0;
         this.total = 2;
-        this.updateEnemy = true;
-        this.enemies.visibility = false;
         this.checkpoints = [-220, -2228, -4136, -6060, -8052];
         this.checkpointBoss = [-10520]
     }
@@ -57,6 +57,7 @@ class Game {
 
     stop() {
         clearInterval(this.intervalId);
+
     }
 
     clear() {
@@ -64,9 +65,7 @@ class Game {
     }
     
     updateEnemies() {
-        console.log(this.x)
-        console.log(this.checkpoints)
-         for(let i = 0; i < this.enemies.length; i++) {
+        for(let i = 0; i < this.enemies.length; i++) {
             
             this.enemies[i].x -= 1 - this.speed;
             
@@ -79,7 +78,25 @@ class Game {
 
             }   
             this.total+= 3;            
-        } 
+        }
+
+        //BOSS
+        console.log(this.checkpointBoss)
+        console.log(this.x)
+        for(let i = 0; i < this.boss.length; i++) {
+            
+            this.boss[i].x -= 1 - this.speed;
+            
+            this.boss[i].drawBoss();
+        }
+
+        if(this.x === this.checkpointBoss[0]){
+            this.checkpointBoss.shift()
+            for (let i = 0; i < 1; i++){
+                this.boss.push(new Enemies(900, 200, 300, 300, 400, 10))
+
+            }   
+        }
     }
 
     updateScore(){
@@ -88,11 +105,37 @@ class Game {
         }
     }
 
+    checkWin(){
+        this.stop();
+        
+            ctx.font = 'bold 70px arial';
+            ctx.fillStyle = 'white';
+            this.ctx.fillRect(0, 0, 1200, 600);
+            ctx.fillStyle = 'Blue';
+            ctx.fillText('You Won',390, 100)
+            ctx.font = '60px arial';
+            ctx.fillStyle = 'Red';
+            ctx.fillText('Your final score:', 400, 200);
+            if(this.score > 0 && this.score < 100) {
+                ctx.fillText(this.score,590, 280);
+            } else{
+                ctx.fillText(this.score,550, 280);
+            }
+            ctx.lineWidth = 2
+    }
+
     checkGameOver() {
-        const crashed = this.enemies.some((enemy) => {
+        const crashedEnemies = this.enemies.some((enemy) => {
             return this.hero.crashWith(enemy);
         });
-        if(crashed && this.hero.w === 100) {
+
+        const crashedBoss = this.boss.some((boss) => {
+            return this.hero.crashWith(boss);
+        });
+
+
+        
+        if(crashedEnemies && this.hero.w === 100 || crashedBoss && this.hero.w === 100) {
             this.stop();
             this.hero.death = true;
             this.hero.idle=false;
@@ -114,14 +157,23 @@ class Game {
                 ctx.fillText(this.score,550, 280);
             }
             ctx.lineWidth = 2
-        }else if (crashed && this.hero.w === 300){
-            this.enemies[0].health -= 1;
+        }else if (crashedEnemies && this.hero.w === 300){
+            this.enemies[0].health -= 100;
             if(this.enemies[0].health <= 0){
                 this.enemies.shift();
                 this.score++;
 
             }
             
+        }else if(crashedBoss && this.hero.w === 300) {
+            console.log(this.boss[0].health)
+            this.boss[0].health -= 1;
+            if(this.boss[0].health <= 0){
+                this.boss.shift();
+                this.score++;
+                this.checkWin();
+
+            }
         }
     }
 }
