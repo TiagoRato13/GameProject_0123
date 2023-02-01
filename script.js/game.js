@@ -11,13 +11,13 @@ class Game {
         this.frames = 0;
         this.enemies = [];
         this.boss = [];
-        this.score = 1000;
+        this.score = 100;
         this.image = new Image();
         this.image.src = '/docs/assets/Images/game-background.jpg'
         this.speed = 0;
         this.x = 0;
         this.total = 2;
-        this.checkpoints = [-220, -2228, -4136, -6060, -8052];
+        this.checkpoints = [-200, -2228, -4136, -6060, -8052];
         this.checkpointBoss = [-10520]
     }
 
@@ -74,15 +74,12 @@ class Game {
         if(this.x === this.checkpoints[0]) {
             this.checkpoints.shift()
             for (let i = 0; i <= this.total; i++){
-                this.enemies.push(new Enemies(1000 + i * 100 , 400, 100, 100, 30, 10))
-
+                this.enemies.push(new Enemies(1000 + i * 100 , 400, 100, 100, 60, 10))
             }   
-            this.total+= 3;            
+            this.total++;            
         }
 
         //BOSS
-        console.log(this.checkpointBoss)
-        console.log(this.x)
         for(let i = 0; i < this.boss.length; i++) {
             
             this.boss[i].x -= 1 - this.speed;
@@ -94,7 +91,6 @@ class Game {
             this.checkpointBoss.shift()
             for (let i = 0; i < 1; i++){
                 this.boss.push(new Enemies(900, 200, 300, 300, 400, 10))
-
             }   
         }
     }
@@ -133,35 +129,38 @@ class Game {
             return this.hero.crashWith(boss);
         });
 
-
-        
-        if(crashedEnemies && this.hero.w === 100 || crashedBoss && this.hero.w === 100) {
-            this.stop();
-            resetButtons.classList.toggle('visibility');
-            ctx.font = 'bold 70px arial';
-            ctx.fillStyle = 'black';
-            this.ctx.fillRect(0, 0, 1200, 600);
-            ctx.fillStyle = 'red';
-            ctx.fillText('GAME OVER!',390, 100)
-            ctx.font = '60px arial';
-            ctx.fillStyle = 'white';
-            ctx.fillText('Your final score:', 400, 200);
-            if(this.score > 0 && this.score < 100) {
-                ctx.fillText(this.score,590, 280);
-            } else{
-                ctx.fillText(this.score,550, 280);
-            }
-            ctx.lineWidth = 2
+        if(crashedEnemies && this.hero.w === 100 || this.score <= 0) {
+            this.hero.health -= 2;
+            if(this.hero.health <= 0){
+                this.stop();
+                resetButtons.classList.remove('visibility');
+                ctx.font = 'bold 70px arial';
+                ctx.fillStyle = 'black';
+                this.ctx.fillRect(0, 0, 1200, 600);
+                ctx.fillStyle = 'red';
+                ctx.fillText('GAME OVER!',390, 100)
+            }          
+            
         }else if (crashedEnemies && this.hero.w === 300){
-            this.enemies[0].health -= 100;
+            this.enemies[0].health -= 1;
             if(this.enemies[0].health <= 0){
                 this.enemies.shift();
                 this.score++;
-
             }
             
+        }else if(crashedBoss && this.hero.w === 100) {
+            this.hero.health -= 5;
+            if(this.hero.health <= 0){
+                this.stop();
+                resetButtons.classList.remove('visibility');
+                ctx.font = 'bold 70px arial';
+                ctx.fillStyle = 'black';
+                this.ctx.fillRect(0, 0, 1200, 600);
+                ctx.fillStyle = 'red';
+                ctx.fillText('GAME OVER!',390, 100)
+            }   
+
         }else if(crashedBoss && this.hero.w === 300) {
-            console.log(this.boss[0].health)
             this.boss[0].health -= 1;
             if(this.boss[0].health <= 0){
                 this.boss.shift();

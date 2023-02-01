@@ -4,18 +4,49 @@ const canvas = document.getElementById('canvas');
 
 const ctx = canvas.getContext('2d');
 
+let game = null;
+
+const health = 200;
+const strength = 10
+
 let restart = document.getElementById('reset-button__restart')
 let homeScreen = document.getElementById('reset-button__home')
 
-const hero = new Mage(150, 310, 100, 200, 20, 10);
+const hero = new Mage(150, 310, 100, 200, health, strength);
 
 let screen = document.getElementById('canvas-screen');
 let title = document.getElementById('game-title');
 let startButton = document.getElementById('start-button');
 
-let game = null;
 
 startButton.onclick = function () {
+    startGame();
+}
+restart.onclick = function () {
+    resetButtons.classList.add('visibility');
+
+    game.hero.health = health
+    game.intervalId = null;
+    game.frames = 0;
+    game.enemies = [];
+    game.boss = [];
+    game.score = 1000;
+    game.speed = 0;
+    game.x = 0;
+    game.total = 2;
+    game.checkpoints = [-220, -2228, -4136, -6060, -8052];
+    game.checkpointBoss = [-10520]
+
+    game.start();
+}
+
+
+homeScreen.onclick = function () {
+    window.location.reload();
+}
+
+function startGame () {
+    
     screen.classList.toggle('visibility');
     title.classList.toggle('visibility');
     startButton.classList.toggle('visibility');
@@ -30,6 +61,7 @@ document.addEventListener('keypress', (e) => {
         case 'KeyA':
             hero.run = true;
             hero.idle =false;
+            hero.attack = false;
             if (game.x +4 <= 0){
                 game.speed = 4;
             }      
@@ -38,14 +70,17 @@ document.addEventListener('keypress', (e) => {
         case 'KeyD':
             hero.run = true;
             hero.idle =false;
+            hero.attack = false;
             if( game.x >= -10850){
                 game.speed = -4;
-            } /* else game.speed = 0; */
+            }
             break;
 
         case 'Space':
             hero.idle = false;
+            hero.run = false;
             hero.attack = true;
+            game.speed = 0;
             break;
     }
 })

@@ -113,7 +113,7 @@ class Mage extends Component{
        }
 
          if(this.attack) {
-                if(this.frames % 9 === 0) {
+                if(this.frames % 15 === 0) {
                     this.animation = (this.animation + 1) % this.mageAttack.length
                 }
                 this.w = 300;
