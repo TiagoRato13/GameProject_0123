@@ -26,6 +26,22 @@ class Mage extends Component{
         idle7.src = "/docs/assets/Images/Lightning Mage/idle/Idle7.png";
 
 
+        //ATTACK
+        const attack1 = new Image();
+        const attack2 = new Image();
+        const attack3 = new Image();
+        const attack4 = new Image();
+
+        attack1.src ="/docs/assets/Images/Lightning Mage/attack/attack1.png"
+        attack1.src ="/docs/assets/Images/Lightning Mage/attack/attack2.png"
+        attack1.src ="/docs/assets/Images/Lightning Mage/attack/attack3.png"
+        attack1.src ="/docs/assets/Images/Lightning Mage/attack/attack4.png"
+
+
+        
+    
+
+
         //RUN
          const run1 = new Image();
          const run2 = new Image();
@@ -60,14 +76,14 @@ class Mage extends Component{
         death5.src = "/docs/assets/Images/Lightning Mage/death/death5.png";
         death6.src = "/docs/assets/Images/Lightning Mage/death/death6.png";
 
-        const attack1 = new Image();
-        attack1.src = '/docs/assets/Images/Lightning Mage/attack/attack4.png'
+        /* const attack1 = new Image();
+        attack1.src = '/docs/assets/Images/Lightning Mage/attack/attack4.png' */
 
-        this.image = idle1;
+        //this.image = idle1;
         this.mageRun = [run1, run2, run3, run4, run5, run6, run7, run8];
         this.mageIdle = [idle1, idle2, idle3, idle4, idle5, idle6, idle7];
         this.mageDeath = [death1, death2, death3, death4, death5, death6];
-        this.mageAttack = [attack1]
+        this.mageAttack = [attack1, attack2, attack3, attack4];
     }
 
     start(){
@@ -89,8 +105,12 @@ class Mage extends Component{
         }
 
         if(this.attack) {
-            this.w = 200;
-            ctx.drawImage(this.mageAttack[0], this.x, this.y, this.w, this.h);
+            if(this.frames % 60 === 0) {
+                this.animation = (this.animation + 1) % this.mageAttack.length
+            } 
+            this.w = 300;
+           // this.y =105
+            ctx.drawImage(this.mageAttack[this.animation], this.x, this.y, this.w, this.h);
         }
 
         if(this.death) {

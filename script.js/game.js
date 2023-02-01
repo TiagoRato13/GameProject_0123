@@ -107,7 +107,7 @@ class Game {
                 ctx.fillText(this.score,550, 280);
             }
             ctx.lineWidth = 2
-        }else if (crashed && this.hero.w === 200){
+        }else if (crashed && this.hero.w === 300){
             this.enemies[0].health -= 1;
             if(this.enemies[0].health <= 0){
                 this.enemies.shift();
