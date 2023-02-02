@@ -8,12 +8,11 @@ let game = null;
 let hero;
 const health = 200;
 const strength = 10;
-/* audioTorture.volume = 0.1; */
+
 
 
 let controls = document.getElementById("controls");
 let homeScreen = document.getElementById("reset-button__home");
-
 let screen = document.getElementById("canvas-screen");
 let title = document.getElementById("game-title");
 let startButton = document.getElementById("start-button");
@@ -22,6 +21,7 @@ startButton.onclick = function () {
   startGame();
   audioAir.play();
   audioTorture.play();
+  audioBackground.play();
 
 };
 

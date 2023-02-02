@@ -58,14 +58,13 @@ body {
 
 #reset-button {
   position: absolute;
-  left: 31vw;
+  left: 38vw;
   top: 63vh;
 }
 
 #reset-button > button {
   border: none;
   background-color: transparent;
-  margin: 0 60px;
 }
 
 #reset-button__home {

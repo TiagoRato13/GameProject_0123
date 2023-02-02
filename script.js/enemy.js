@@ -12,10 +12,10 @@ class Enemy extends Component{
         const monster3 = new Image();
         const monster4 = new Image();
 
-        monster1.src = "/docs/assets/Images/MonsterOne/monster1-1.png";
-        monster2.src = "/docs/assets/Images/MonsterOne/monster1-2.png";
-        monster3.src = "/docs/assets/Images/MonsterOne/monster1-3.png";
-        monster4.src = "/docs/assets/Images/MonsterOne/monster1-4.png";
+        monster1.src = "./docs/assets/Images/MonsterOne/monster1-1.png";
+        monster2.src = "./docs/assets/Images/MonsterOne/monster1-2.png";
+        monster3.src = "./docs/assets/Images/MonsterOne/monster1-3.png";
+        monster4.src = "./docs/assets/Images/MonsterOne/monster1-4.png";
 
         this.monsterWalk = [monster1, monster2, monster3, monster4];
     }
@@ -30,12 +30,6 @@ class Enemy extends Component{
     }
 
     draw(){
-      /*   if(this.frames % 120 === 0) {
-            this.animation = (this.animation + 1) % this.monsterWalk.length
-        }  */
-
         ctx.drawImage(this.monsterWalk[this.animation], this.x, this.y, this.w, this.h);
     }
-
-    
 }

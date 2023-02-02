@@ -1,15 +1,6 @@
 /** @type {HTMLCanvasElementonDie} */
 
 let resetButtons = document.getElementById("reset-button");
-//SOUNDS
-const skeletonWalk = new Audio('./docs/assets/sounds/rattling-bones-105394.mp3')
-const metalSound = new Audio('./docs/assets/sounds/rattling-bones-105394.mp3')
-const skeletonDie = new Audio('./docs/assets/sounds/bone-crack-121580.mp3')
-const audioAir = new Audio('./docs/assets/sounds/dungeon-air-6983.mp3');
-const audioTorture = new Audio('./docs/assets/sounds/torture-screams-and-moans-7091.mp3')
-const swordAttack = new Audio('./docs/assets/sounds/slash1-94367.mp3')
-const loseGame = new Audio('./docs/assets/sounds/dramatic-synth-echo-43970.mp3')
-const loseGameGirlVoice = new Audio('./docs/assets/sounds/creepy-girl-says-game-over-103538.mp3')
 
 class Game {
   constructor(ctx, width, height, hero) {
@@ -117,6 +108,7 @@ class Game {
     swordAttack.pause();
     audioAir.pause();
     audioTorture.pause();
+    audioBackground.pause();
     loseGame.play();
     setTimeout(() => {
       loseGameGirlVoice.play()
