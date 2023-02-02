@@ -18,13 +18,13 @@ class Mage extends Component {
     const idle5 = new Image();
     const idle6 = new Image();
     const idle7 = new Image();
-    idle1.src = "docs/assets/Images/Lightning Mage/idle/Idle1.png";
-    idle2.src = "docs/assets/Images/Lightning Mage/idle/Idle2.png";
-    idle3.src = "docs/assets/Images/Lightning Mage/idle/Idle3.png";
-    idle4.src = "docs/assets/Images/Lightning Mage/idle/Idle4.png";
-    idle5.src = "docs/assets/Images/Lightning Mage/idle/Idle5.png";
-    idle6.src = "docs/assets/Images/Lightning Mage/idle/Idle6.png";
-    idle7.src = "docs/assets/Images/Lightning Mage/idle/Idle7.png";
+    idle1.src = "docs/assets/Images/LightningMage/idle/Idle1.png";
+    idle2.src = "docs/assets/Images/LightningMage/idle/Idle2.png";
+    idle3.src = "docs/assets/Images/LightningMage/idle/Idle3.png";
+    idle4.src = "docs/assets/Images/LightningMage/idle/Idle4.png";
+    idle5.src = "docs/assets/Images/LightningMage/idle/Idle5.png";
+    idle6.src = "docs/assets/Images/LightningMage/idle/Idle6.png";
+    idle7.src = "docs/assets/Images/LightningMage/idle/Idle7.png";
 
     //ATTACK
     const attack1 = new Image();
@@ -32,10 +32,10 @@ class Mage extends Component {
     const attack3 = new Image();
     const attack4 = new Image();
 
-    attack1.src = "docs/assets/Images/Lightning Mage/attack/attack1.png";
-    attack2.src = "docs/assets/Images/Lightning Mage/attack/attack2.png";
-    attack3.src = "docs/assets/Images/Lightning Mage/attack/attack3.png";
-    attack4.src = "docs/assets/Images/Lightning Mage/attack/attack4.png";
+    attack1.src = "docs/assets/Images/LightningMage/attack/attack1.png";
+    attack2.src = "docs/assets/Images/LightningMage/attack/attack2.png";
+    attack3.src = "docs/assets/Images/LightningMage/attack/attack3.png";
+    attack4.src = "docs/assets/Images/LightningMage/attack/attack4.png";
 
     //RUN
     const run1 = new Image();
@@ -47,14 +47,14 @@ class Mage extends Component {
     const run7 = new Image();
     const run8 = new Image();
 
-    run1.src = "docs/assets/Images/Lightning Mage/run/Run1.png";
-    run2.src = "docs/assets/Images/Lightning Mage/run/Run2.png";
-    run3.src = "docs/assets/Images/Lightning Mage/run/Run3.png";
-    run4.src = "docs/assets/Images/Lightning Mage/run/Run4.png";
-    run5.src = "docs/assets/Images/Lightning Mage/run/Run5.png";
-    run6.src = "docs/assets/Images/Lightning Mage/run/Run6.png";
-    run7.src = "docs/assets/Images/Lightning Mage/run/Run7.png";
-    run8.src = "docs/assets/Images/Lightning Mage/run/Run8.png";
+    run1.src = "docs/assets/Images/LightningMage/run/Run1.png";
+    run2.src = "docs/assets/Images/LightningMage/run/Run2.png";
+    run3.src = "docs/assets/Images/LightningMage/run/Run3.png";
+    run4.src = "docs/assets/Images/LightningMage/run/Run4.png";
+    run5.src = "docs/assets/Images/LightningMage/run/Run5.png";
+    run6.src = "docs/assets/Images/LightningMage/run/Run6.png";
+    run7.src = "docs/assets/Images/LightningMage/run/Run7.png";
+    run8.src = "docs/assets/Images/LightningMage/run/Run8.png";
 
     //WALK
     const walk1 = new Image();
@@ -65,13 +65,13 @@ class Mage extends Component {
     const walk6 = new Image();
     const walk7 = new Image();
 
-    walk1.src = "docs/assets/Images/Lightning Mage/walk/walk1.png";
-    walk2.src = "docs/assets/Images/Lightning Mage/walk/walk2.png";
-    walk3.src = "docs/assets/Images/Lightning Mage/walk/walk3.png";
-    walk4.src = "docs/assets/Images/Lightning Mage/walk/walk4.png";
-    walk5.src = "docs/assets/Images/Lightning Mage/walk/walk5.png";
-    walk6.src = "docs/assets/Images/Lightning Mage/walk/walk6.png";
-    walk7.src = "docs/assets/Images/Lightning Mage/walk/walk7.png";
+    walk1.src = "docs/assets/Images/LightningMage/walk/walk1.png";
+    walk2.src = "docs/assets/Images/LightningMage/walk/walk2.png";
+    walk3.src = "docs/assets/Images/LightningMage/walk/walk3.png";
+    walk4.src = "docs/assets/Images/LightningMage/walk/walk4.png";
+    walk5.src = "docs/assets/Images/LightningMage/walk/walk5.png";
+    walk6.src = "docs/assets/Images/LightningMage/walk/walk6.png";
+    walk7.src = "docs/assets/Images/LightningMage/walk/walk7.png";
 
     //DEATH
     const death1 = new Image();
@@ -80,12 +80,12 @@ class Mage extends Component {
     const death4 = new Image();
     const death5 = new Image();
     const death6 = new Image();
-    death1.src = "docs/assets/Images/Lightning Mage/death/death1.png";
-    death2.src = "docs/assets/Images/Lightning Mage/death/death2.png";
-    death3.src = "docs/assets/Images/Lightning Mage/death/death3.png";
-    death4.src = "docs/assets/Images/Lightning Mage/death/death4.png";
-    death5.src = "docs/assets/Images/Lightning Mage/death/death5.png";
-    death6.src = "docs/assets/Images/Lightning Mage/death/death6.png";
+    death1.src = "docs/assets/Images/LightningMage/death/death1.png";
+    death2.src = "docs/assets/Images/LightningMage/death/death2.png";
+    death3.src = "docs/assets/Images/LightningMage/death/death3.png";
+    death4.src = "docs/assets/Images/LightningMage/death/death4.png";
+    death5.src = "docs/assets/Images/LightningMage/death/death5.png";
+    death6.src = "docs/assets/Images/LightningMage/death/death6.png";
 
     //movement arrays
     this.mageIdle = [idle1, idle2, idle3, idle4, idle5, idle6, idle7];
