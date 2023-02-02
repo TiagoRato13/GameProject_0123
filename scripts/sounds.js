@@ -6,7 +6,7 @@ const audioBackground = new Audio('./docs/assets/sounds/cave_dungeon_secret_teml
 
 //MOVING SOUNDS
 const running = new Audio('./docs/assets/sounds/run.mp3');
-const walkBack = new Audio(./'docs/assets/sounds/walk.mp3')
+const walkBack = new Audio('./docs/assets/sounds/walk.mp3')
 
 
 //WEAPON SOUNDS
@@ -26,16 +26,3 @@ const bossWalk = new Audio('./docs/assets/sounds/boss-walking-fast-99752.mp3')
 //GAME OVER
 const loseGame = new Audio('./docs/assets/sounds/dramatic-synth-echo-43970.mp3');
 const loseGameGirlVoice = new Audio('./docs/assets/sounds/creepy-girl-says-game-over-103538.mp3');
-
-
-
-
-
-
-
-
-
-
-
-
-
