@@ -71,7 +71,7 @@ document.addEventListener("keypress", (e) => {
       if (!hero.death) {
         hero.attack = true;
         swordAttack.play()
-      }
+      } 
       swordAttack.pause()
       hero.idle = false;
       hero.run = false;
