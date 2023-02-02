@@ -1,7 +1,5 @@
 //BACKGROUND SOUNDS
 const audioAir = new Audio('./docs/assets/sounds/dungeon-air-6983.mp3');
-const audioTorture = new Audio('./docs/assets/sounds/torture-screams-and-moans-7091.mp3');
-audioTorture.volume = 0.08;
 const audioBackground = new Audio('./docs/assets/sounds/cave_dungeon_secret_temle-18374.mp3');
 
 //MOVING SOUNDS
@@ -22,7 +20,12 @@ const metalSound = new Audio('./docs/assets/sounds/rattling-bones-105394.mp3');
 
 //BOSS SOUNDS
 const bossWalk = new Audio('./docs/assets/sounds/boss-walking-fast-99752.mp3')
+const audioTorture = new Audio('./docs/assets/sounds/torture-screams-and-moans-7091.mp3');
+audioTorture.volume = 0.45;
 
 //GAME OVER
 const loseGame = new Audio('./docs/assets/sounds/dramatic-synth-echo-43970.mp3');
 const loseGameGirlVoice = new Audio('./docs/assets/sounds/creepy-girl-says-game-over-103538.mp3');
+
+//WINNING GAME
+const winGameSound = new Audio('./docs/assets/sounds/WinSound.mp3');

@@ -150,6 +150,7 @@ class Game {
     running.pause();
     walkBack.pause();
     bossWalk.pause();
+    winGameSound.play();
    
     this.hero.idle = null;
     this.hero.walk = null;
