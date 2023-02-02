@@ -20,9 +20,7 @@ let startButton = document.getElementById("start-button");
 startButton.onclick = function () {
   startGame();
   audioAir.play();
-  audioTorture.play();
   audioBackground.play();
-
 };
 
 homeScreen.onclick = function () {
@@ -50,6 +48,8 @@ document.addEventListener("keypress", (e) => {
       hero.run = false;
       if (game.x + 4 <= 0 || !hero.death) {
         game.speed = 2;
+        walkBack.play();
+        running.pause();
       }
       break;
 
@@ -60,6 +60,8 @@ document.addEventListener("keypress", (e) => {
       hero.walk = false;
       if (game.x >= -10850 || !hero.death) {
         game.speed = -4;
+        running.play();
+        walkBack.pause();
       }
       break;
 
@@ -72,6 +74,8 @@ document.addEventListener("keypress", (e) => {
       hero.run = false;
       hero.walk = false;
       game.speed = 0;
+      running.pause();
+      walkBack.pause();
       break;
   }
 });
@@ -83,4 +87,6 @@ document.addEventListener("keyup", () => {
   hero.attack = false;
   hero.run = false;
   hero.walk = false;
+  running.pause();
+  walkBack.pause();
 });

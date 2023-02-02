@@ -8,7 +8,6 @@ glowsize: 163, 51
 body {
   margin: 0;
   padding: 0;
-
   background-image: url(/docs/assets/Images/background.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -41,15 +40,23 @@ body {
 #start-button {
   position: absolute;
   top: 480px;
-  right: 60px;
+  right: 60px; 
 }
 
 #start-button > button {
   background-color: transparent;
   border: none;
-  display: flex;
-  justify-content: center;
   padding-top: 10px;
+}
+
+#doNotPress {
+  position: absolute;
+  opacity: 0.6;
+  top: -25px;
+  rotate: -20deg;
+  left: -100px;
+  height: 40px;
+  width: 200px;
 }
 
 #start-button__image {

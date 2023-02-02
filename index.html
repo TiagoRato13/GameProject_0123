@@ -9,6 +9,10 @@
     <title>Document</title>
   </head>
   <body>
+    <audio id="my_audio" src="/docs/assets/sounds/cave_dungeon_secret_temle-18374.mp3" loop="loop"></audio>
+    <script>
+        window.onload = function() { document.getElementById("my_audio").play()}
+    </script>
     <div>
       <img src="/docs/assets/Images/GameTitle.png" alt="" id="game-title" />
     </div>
@@ -23,12 +27,9 @@
 
     <div id="start-button">
       <button>
-        <img
-          src="/docs/assets/Images/startButton.png"
-          alt=""
-          id="start-button__image"
-        />
+        <img src="/docs/assets/Images/startButton.png" alt="" id="start-button__image" />
       </button>
+      <div><img src="/docs/assets/Images/doNotPress.png" alt="do not press" id="doNotPress"></div>
     </div>
 
     <div id="controls" class="visibility">

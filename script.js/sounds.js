@@ -4,11 +4,14 @@ const audioTorture = new Audio('./docs/assets/sounds/torture-screams-and-moans-7
 audioTorture.volume = 0.08;
 const audioBackground = new Audio('/docs/assets/sounds/cave_dungeon_secret_temle-18374.mp3');
 
+//MOVING SOUNDS
+const running = new Audio('/docs/assets/sounds/run.mp3');
+const walkBack = new Audio('/docs/assets/sounds/walk.mp3')
 
 
 //WEAPON SOUNDS
 const swordAttack = new Audio('./docs/assets/sounds/slash1-94367.mp3');
-swordAttack.volume = 0.3
+swordAttack.volume = 0.25
 
 
 //SKELETON SOUNDS
@@ -17,6 +20,8 @@ skeletonDie.volume = 0.4
 const skeletonWalk = new Audio('./docs/assets/sounds/rattling-bones-105394.mp3');
 const metalSound = new Audio('./docs/assets/sounds/rattling-bones-105394.mp3');
 
+//BOSS SOUNDS
+const bossWalk = new Audio('/docs/assets/sounds/boss-walking-fast-99752.mp3')
 
 //GAME OVER
 const loseGame = new Audio('./docs/assets/sounds/dramatic-synth-echo-43970.mp3');
