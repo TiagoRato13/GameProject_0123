@@ -4,6 +4,12 @@ color glow: 006080
 glowsize: 163, 51
 
 */
+
+@font-face {
+  font-family: pixelig_cursiefregular;
+  src: url("/docs/assets/font/Pixelig Cursief.ttf");
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -19,6 +25,7 @@ body {
   position: absolute;
   top: 20vh;
   left: 50vh;
+  font-family: pixelig_cursiefregular;
 }
 
 #game-title {

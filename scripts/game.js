@@ -42,6 +42,7 @@ class Game {
     this.updateScore();
     this.move();
     this.hero.draw();
+    console.log(this.boss[0].health)
   };
 
   move() {
@@ -52,14 +53,14 @@ class Game {
   drawCanvas() {
     this.ctx.drawImage(this.image, this.x - 10, 0);
 
-    ctx.font = "bold 45px sens-serif";
+    ctx.font = "45px pixelig_cursiefregular";
     ctx.fillStyle = "black";
-    ctx.fillText("Time:", 68, 46);
-    ctx.fillText(this.score, 193, 46);
+    ctx.fillText("Time:", 65, 43);
+    ctx.fillText(this.score, 200, 40);
 
     ctx.fillStyle = "white";
     ctx.fillText("Time:", 75, 53);
-    ctx.fillText(this.score, 200, 53);
+    ctx.fillText(this.score, 210, 50);
   }
 
   stop() {
@@ -90,6 +91,7 @@ class Game {
     for (let i = 0; i < this.boss.length; i++) {
       this.boss[i].x -= 1 - this.speed;
       this.boss[i].drawBoss();
+     
       bossWalk.play();
       audioTorture.play();
     }
@@ -158,15 +160,13 @@ class Game {
     ctx.fillStyle = "black";
     this.ctx.fillRect(0, 0, 1200, 600);
     this.ctx.drawImage(this.win, 0, 0);
-    ctx.font = "60px arial";
-    ctx.fillStyle = "Red";
-    ctx.fillText("Your final score:", 400, 200);
+    ctx.fillStyle = "#03a2d7";
+    ctx.fillText("Your final score:", 50, 180);
     if (this.score > 0 && this.score < 100) {
-      ctx.fillText(this.score, 590, 280);
+      ctx.fillText(this.score, 200, 230);
     } else {
-      ctx.fillText(this.score, 550, 280);
+      ctx.fillText(this.score, 200, 230);
     }
-    ctx.lineWidth = 2;
     resetButtons.classList.remove("visibility");
   }
 

@@ -3,6 +3,7 @@
 const canvas = document.getElementById("canvas");
 
 const ctx = canvas.getContext("2d");
+ctx.font = "70px pixelig_cursiefregular";
 
 let game = null;
 let hero;
