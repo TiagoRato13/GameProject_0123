@@ -26,6 +26,7 @@ audioTorture.volume = 0.45;
 //GAME OVER
 const loseGame = new Audio('./docs/assets/sounds/dramatic-synth-echo-43970.mp3');
 const loseGameGirlVoice = new Audio('./docs/assets/sounds/creepy-girl-says-game-over-103538.mp3');
+const evilLaugh = new Audio('./docs/assets/sounds/possessed-laugh-94851.mp3')
 
 //WINNING GAME
 const winGameSound = new Audio('./docs/assets/sounds/WinSound.mp3');

@@ -121,10 +121,15 @@ class Game {
     audioTorture.pause();
     bossWalk.pause();
     audioBackground.pause();
-    loseGame.play();
+    evilLaugh.play();
+    setTimeout(() => {
+      loseGame.play();
+    }, "1000");
     setTimeout(() => {
       loseGameGirlVoice.play();
-    }, "1400");
+    }, "3500");
+
+    
     this.hero.idle = null;
     this.hero.walk = null;
     this.hero.run = null;
