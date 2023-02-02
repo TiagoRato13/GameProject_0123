@@ -23,7 +23,7 @@ class Game {
     this.x = 0;
     this.total = 2;
     this.checkpoints = [-200, -2228, -4136, -6060, -8052];
-    this.checkpointBoss = [-220]; /* 10520 */
+    this.checkpointBoss = [-10520];
     this.theEnd = false;
     this.finished = false;
   }
@@ -71,7 +71,7 @@ class Game {
   }
 
   updateEnemies() {
-    /* for (let i = 0; i < this.enemies.length; i++) {
+    for (let i = 0; i < this.enemies.length; i++) {
       this.enemies[i].x -= 1 - this.speed;
       this.enemies[i].draw();
       metalSound.play();
@@ -84,7 +84,7 @@ class Game {
       }
       this.total++;
       this.checkpoints.shift();
-    } */
+    }
 
     //BOSS
     for (let i = 0; i < this.boss.length; i++) {
@@ -97,7 +97,7 @@ class Game {
     if (this.x === this.checkpointBoss[0]) {
       this.checkpointBoss.shift();
       for (let i = 0; i < 1; i++) {
-        this.boss.push(new Enemies(900, 200, 300, 300, 40, 10));
+        this.boss.push(new Enemies(900, 200, 300, 300, 400, 10));
       }
     }
   }
