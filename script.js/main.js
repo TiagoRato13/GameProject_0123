@@ -11,7 +11,7 @@ const strength = 10;
 /* audioTorture.volume = 0.1; */
 
 
-/* let restart = document.getElementById("reset-button__restart"); */
+let controls = document.getElementById("controls");
 let homeScreen = document.getElementById("reset-button__home");
 
 let screen = document.getElementById("canvas-screen");
@@ -25,21 +25,13 @@ startButton.onclick = function () {
 
 };
 
-/* restart.onclick = function () {
-  resetButtons.classList.add("visibility");
-  hero = new Mage(150, 310, 100, 200, health, strength);
-  game = new Game(ctx, canvas.width, canvas.height, hero);
-
-  game.start();
-  hero.start();
-}; */
-
 homeScreen.onclick = function () {
   window.location.reload();
 };
 
 function startGame() {
   screen.classList.toggle("visibility");
+  controls.classList.toggle('visibility')
   title.classList.toggle("visibility");
   startButton.classList.toggle("visibility");
   hero = new Mage(150, 310, 100, 200, health, strength);

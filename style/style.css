@@ -32,6 +32,12 @@ body {
   display: none;
 }
 
+#controls {
+  position: absolute;
+  left: 30px;
+  bottom: 175px;
+}
+
 #start-button {
   position: absolute;
   top: 480px;
@@ -39,12 +45,10 @@ body {
 }
 
 #start-button > button {
-  background-color: rgba(48, 6, 6, 0.23);
+  background-color: transparent;
+  border: none;
   display: flex;
   justify-content: center;
-  border-radius: 15px;
-  border: 3px solid rgb(2, 69, 121);
-  box-shadow: 20px -20px 30px 15px rgba(0, 0, 0, 0.459);
   padding-top: 10px;
 }
 
@@ -63,11 +67,6 @@ body {
   background-color: transparent;
   margin: 0 60px;
 }
-
-/* #reset-button__restart {
-  height: 10vh;
-  z-index: 1;
-} */
 
 #reset-button__home {
   height: 12vh;

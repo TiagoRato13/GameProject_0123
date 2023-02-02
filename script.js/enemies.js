@@ -12,13 +12,13 @@ class Enemies extends Component {
     const monster6 = new Image();
     const monster7 = new Image();
 
-    monster1.src = "/docs/assets/Images/MonsterOne/monster1_1.png";
-    monster2.src = "/docs/assets/Images/MonsterOne/monster1_2.png";
-    monster3.src = "/docs/assets/Images/MonsterOne/monster1_3.png";
-    monster4.src = "/docs/assets/Images/MonsterOne/monster1_4.png";
-    monster5.src = "/docs/assets/Images/MonsterOne/monster1_5.png";
-    monster6.src = "/docs/assets/Images/MonsterOne/monster1_6.png";
-    monster7.src = "/docs/assets/Images/MonsterOne/monster1_7.png";
+    monster1.src = "./docs/assets/Images/MonsterOne/monster1_1.png";
+    monster2.src = "./docs/assets/Images/MonsterOne/monster1_2.png";
+    monster3.src = "./docs/assets/Images/MonsterOne/monster1_3.png";
+    monster4.src = "./docs/assets/Images/MonsterOne/monster1_4.png";
+    monster5.src = "./docs/assets/Images/MonsterOne/monster1_5.png";
+    monster6.src = "./docs/assets/Images/MonsterOne/monster1_6.png";
+    monster7.src = "./docs/assets/Images/MonsterOne/monster1_7.png";
 
     this.animation = monster1;
     this.monsterWalk = [
@@ -48,23 +48,23 @@ class Enemies extends Component {
     const boss15 = new Image();
     const boss16 = new Image();
     const boss17 = new Image();
-    boss1.src = "/docs/assets/Images/boss/boss1.png";
-    boss2.src = "/docs/assets/Images/boss/boss2.png";
-    boss3.src = "/docs/assets/Images/boss/boss3.png";
-    boss4.src = "/docs/assets/Images/boss/boss4.png";
-    boss5.src = "/docs/assets/Images/boss/boss5.png";
-    boss6.src = "/docs/assets/Images/boss/boss6.png";
-    boss7.src = "/docs/assets/Images/boss/boss7.png";
-    boss8.src = "/docs/assets/Images/boss/boss8.png";
-    boss9.src = "/docs/assets/Images/boss/boss9.png";
-    boss10.src = "/docs/assets/Images/boss/boss10.png";
-    boss11.src = "/docs/assets/Images/boss/boss11.png";
-    boss12.src = "/docs/assets/Images/boss/boss12.png";
-    boss13.src = "/docs/assets/Images/boss/boss13.png";
-    boss14.src = "/docs/assets/Images/boss/boss14.png";
-    boss15.src = "/docs/assets/Images/boss/boss15.png";
-    boss16.src = "/docs/assets/Images/boss/boss16.png";
-    boss17.src = "/docs/assets/Images/boss/boss17.png";
+    boss1.src = "./docs/assets/Images/boss/boss1.png";
+    boss2.src = "./docs/assets/Images/boss/boss2.png";
+    boss3.src = "./docs/assets/Images/boss/boss3.png";
+    boss4.src = "./docs/assets/Images/boss/boss4.png";
+    boss5.src = "./docs/assets/Images/boss/boss5.png";
+    boss6.src = "./docs/assets/Images/boss/boss6.png";
+    boss7.src = "./docs/assets/Images/boss/boss7.png";
+    boss8.src = "./docs/assets/Images/boss/boss8.png";
+    boss9.src = "./docs/assets/Images/boss/boss9.png";
+    boss10.src = "./docs/assets/Images/boss/boss10.png";
+    boss11.src = "./docs/assets/Images/boss/boss11.png";
+    boss12.src = "./docs/assets/Images/boss/boss12.png";
+    boss13.src = "./docs/assets/Images/boss/boss13.png";
+    boss14.src = "./docs/assets/Images/boss/boss14.png";
+    boss15.src = "./docs/assets/Images/boss/boss15.png";
+    boss16.src = "./docs/assets/Images/boss/boss16.png";
+    boss17.src = "./docs/assets/Images/boss/boss17.png";
     this.boss = [
       boss1,
       boss2,
