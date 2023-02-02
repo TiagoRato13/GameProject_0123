@@ -128,7 +128,6 @@ class Game {
     this.hero.run = null;
     this.hero.attack = null;
     this.hero.speed = null;
-    ctx.font = "bold 70px arial";
     ctx.fillStyle = "black";
     this.ctx.fillRect(0, 0, 1200, 600);
     this.ctx.drawImage(this.gameOver, 0, 0);
@@ -149,10 +148,8 @@ class Game {
     bossWalk.pause();
     this.stop();
 
-    ctx.font = "bold 70px arial";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "black";
     this.ctx.fillRect(0, 0, 1200, 600);
-    ctx.fillStyle = "Blue";
     this.ctx.drawImage(this.win, 0, 0);
     ctx.font = "60px arial";
     ctx.fillStyle = "Red";
