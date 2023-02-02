@@ -51,6 +51,7 @@ document.addEventListener("keypress", (e) => {
         walkBack.play();
         running.pause();
       }
+      walkBack.pause();
       break;
 
     case "KeyD":
@@ -63,6 +64,7 @@ document.addEventListener("keypress", (e) => {
         running.play();
         walkBack.pause();
       }
+      running.pause();
       break;
 
     case "Space":
@@ -70,6 +72,7 @@ document.addEventListener("keypress", (e) => {
         hero.attack = true;
         swordAttack.play()
       }
+      swordAttack.pause()
       hero.idle = false;
       hero.run = false;
       hero.walk = false;
