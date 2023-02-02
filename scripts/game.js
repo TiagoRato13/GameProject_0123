@@ -24,6 +24,7 @@ class Game {
     this.total = 2;
     this.checkpoints = [-200, -2228, -4136, -6060, -8052];
     this.checkpointBoss = [-10520];
+    this.theEnd = false
   }
 
   start() {
@@ -107,6 +108,7 @@ class Game {
   }
 
   died() {
+    this.theEnd = true
     this.stop();
     skeletonWalk.pause();
     metalSound.pause();
