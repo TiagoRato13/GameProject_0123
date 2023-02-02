@@ -14,9 +14,9 @@ class Game {
     this.boss = [];
     this.score = 100;
     this.image = new Image();
-    this.image.src = "./docs/assets/Images/game-background.jpg";
+    this.image.src = "../docs/assets/Images/game-background.jpg";
     this.win = new Image();
-    this.win.src = './docs/assets/Images/youwon.jpg'
+    this.win.src = '../docs/assets/Images/youwon.jpg'
     this.speed = 0;
     this.x = 0;
     this.total = 2;
