@@ -14,9 +14,9 @@ class Game {
     this.boss = [];
     this.score = 100;
     this.image = new Image();
-    this.image.src = "../docs/assets/Images/game-background.jpg";
+    this.image.src = "docs/assets/Images/game-background.jpg";
     this.win = new Image();
-    this.win.src = '../docs/assets/Images/youwon.jpg'
+    this.win.src = "docs/assets/Images/youwon.jpg";
     this.speed = 0;
     this.x = 0;
     this.total = 2;
@@ -38,7 +38,6 @@ class Game {
     this.updateScore();
     this.move();
     this.hero.draw();
-    
   };
 
   move() {
@@ -48,7 +47,7 @@ class Game {
 
   drawCanvas() {
     this.ctx.drawImage(this.image, this.x - 10, 0);
-    
+
     ctx.font = "bold 45px sens-serif";
     ctx.fillStyle = "black";
     ctx.fillText("Time:", 68, 46);
@@ -73,9 +72,8 @@ class Game {
       this.enemies[i].draw();
       metalSound.play();
       skeletonWalk.play();
-
     }
-    if (this.x >= this.checkpoints[0] && this.x < (this.checkpoints[0] + 100)) {
+    if (this.x >= this.checkpoints[0] && this.x < this.checkpoints[0] + 100) {
       for (let i = 0; i <= this.total - 1; i++) {
         this.enemies.push(new Enemies(1000 + i * 150, 290, 230, 200, 60, 10));
         this.enemies.push(new Enemies(1100 + i * 150, 330, 230, 200, 60, 10));
@@ -89,7 +87,7 @@ class Game {
       this.boss[i].x -= 1 - this.speed;
       this.boss[i].drawBoss();
       bossWalk.play();
-      audioTorture.play()
+      audioTorture.play();
     }
 
     if (this.x === this.checkpointBoss[0]) {
@@ -118,8 +116,8 @@ class Game {
     audioBackground.pause();
     loseGame.play();
     setTimeout(() => {
-      loseGameGirlVoice.play()
-    }, "1400")
+      loseGameGirlVoice.play();
+    }, "1400");
     this.hero.idle = null;
     this.hero.walk = null;
     this.hero.run = null;
