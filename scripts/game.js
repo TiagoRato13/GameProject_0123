@@ -17,6 +17,8 @@ class Game {
     this.image.src = "docs/assets/Images/game-background.jpg";
     this.win = new Image();
     this.win.src = "docs/assets/Images/youwon.jpg";
+    this.gameOver = new Image();
+    this.gameOver.src = "docs/assets/Images/gameover.jpg";
     this.speed = 0;
     this.x = 0;
     this.total = 2;
@@ -126,12 +128,7 @@ class Game {
     ctx.font = "bold 70px arial";
     ctx.fillStyle = "black";
     this.ctx.fillRect(0, 0, 1200, 600);
-    ctx.fillStyle = "red";
-    ctx.fillText("GAME OVER!", 390, 200);
-    ctx.font = "60px arial";
-    ctx.fillStyle = "white";
-    ctx.fillText("You deserve NO score!", 300, 300);
-    ctx.lineWidth = 2;
+    this.ctx.drawImage(this.gameOver, 0, 0);
     resetButtons.classList.remove("visibility");
   }
 
