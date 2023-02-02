@@ -136,6 +136,10 @@ class Game {
 
   checkWin() {
     this.finished = true;
+    this.hero.walk = null;
+    this.hero.run = null;
+    this.hero.attack = null;
+    this.hero.speed = null;
     skeletonWalk.pause();
     metalSound.pause();
     skeletonDie.pause();

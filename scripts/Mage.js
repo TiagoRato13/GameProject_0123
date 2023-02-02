@@ -114,7 +114,7 @@ class Mage extends Component {
       if (this.frames % 12 === 0) {
         this.animation = (this.animation + 1) % this.mageIdle.length;
       }
-      if(this.health > 0) {
+      if (this.health > 0) {
         ctx.drawImage(
           this.mageIdle[this.animation],
           this.x,
@@ -129,7 +129,7 @@ class Mage extends Component {
         this.animation = (this.animation + 1) % this.mageAttack.length;
       }
       this.w = 300;
-      if(this.health > 0) {
+      if (this.health > 0) {
         ctx.drawImage(
           this.mageAttack[this.animation],
           this.x,
@@ -144,7 +144,7 @@ class Mage extends Component {
         this.animation = (this.animation + 1) % this.mageRun.length;
       }
       this.w = 160;
-      if(this.health > 0) {
+      if (this.health > 0) {
         ctx.drawImage(
           this.mageRun[this.animation],
           this.x,
@@ -158,7 +158,7 @@ class Mage extends Component {
       if (this.frames % 12 === 0) {
         this.animation = (this.animation + 1) % this.mageWalk.length;
       }
-      if(this.health > 0) {
+      if (this.health > 0) {
         ctx.drawImage(
           this.mageWalk[this.animation],
           this.x,

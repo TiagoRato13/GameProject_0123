@@ -9,8 +9,6 @@ let hero;
 const health = 200;
 const strength = 10;
 
-
-
 let controls = document.getElementById("controls");
 let homeScreen = document.getElementById("reset-button__home");
 let screen = document.getElementById("canvas-screen");
@@ -29,12 +27,12 @@ homeScreen.onclick = function () {
 
 function startGame() {
   screen.classList.toggle("visibility");
-  controls.classList.toggle('visibility')
+  controls.classList.toggle("visibility");
   title.classList.toggle("visibility");
   startButton.classList.toggle("visibility");
   hero = new Mage(150, 310, 100, 200, health, strength);
   game = new Game(ctx, canvas.width, canvas.height, hero);
-  
+
   hero.start();
   game.start();
 }
@@ -51,7 +49,7 @@ document.addEventListener("keypress", (e) => {
         walkBack.play();
         running.pause();
       }
-      if(game.theEnd || game.finished){
+      if (game.theEnd || game.finished) {
         walkBack.pause();
       }
       break;
@@ -66,7 +64,7 @@ document.addEventListener("keypress", (e) => {
         running.play();
         walkBack.pause();
       }
-      if(game.theEnd || game.finished){
+      if (game.theEnd || game.finished) {
         running.pause();
       }
       break;
@@ -74,12 +72,11 @@ document.addEventListener("keypress", (e) => {
     case "Space":
       if (!hero.death) {
         hero.attack = true;
-        swordAttack.play()
+        swordAttack.play();
       }
-      if(game.theEnd || game.finished){
+      if (game.theEnd || game.finished) {
         swordAttack.pause();
       }
-      
       hero.idle = false;
       hero.run = false;
       hero.walk = false;
