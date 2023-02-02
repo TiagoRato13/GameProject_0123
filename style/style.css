@@ -13,7 +13,7 @@ glowsize: 163, 51
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../docs/assets/Images/background.jpg');
+  background-image: url("../docs/assets/Images/background.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -47,7 +47,7 @@ body {
 #start-button {
   position: absolute;
   top: 480px;
-  right: 60px; 
+  right: 60px;
 }
 
 #start-button > button {

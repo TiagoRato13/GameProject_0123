@@ -42,7 +42,7 @@ class Game {
     this.updateScore();
     this.move();
     this.hero.draw();
-    console.log(this.boss[0].health)
+    console.log(this.boss[0].health);
   };
 
   move() {
@@ -91,7 +91,7 @@ class Game {
     for (let i = 0; i < this.boss.length; i++) {
       this.boss[i].x -= 1 - this.speed;
       this.boss[i].drawBoss();
-     
+
       bossWalk.play();
       audioTorture.play();
     }
@@ -111,7 +111,7 @@ class Game {
   }
 
   died() {
-    this.theEnd = true
+    this.theEnd = true;
     this.stop();
     skeletonWalk.pause();
     metalSound.pause();
@@ -129,7 +129,6 @@ class Game {
       loseGameGirlVoice.play();
     }, "3500");
 
-    
     this.hero.idle = null;
     this.hero.walk = null;
     this.hero.run = null;
@@ -156,13 +155,13 @@ class Game {
     walkBack.pause();
     bossWalk.pause();
     winGameSound.play();
-   
+
     this.hero.idle = null;
     this.hero.walk = null;
     this.hero.run = null;
     this.hero.attack = null;
     this.hero.speed = null;
-    
+
     ctx.fillStyle = "black";
     this.ctx.fillRect(0, 0, 1200, 600);
     this.ctx.drawImage(this.win, 0, 0);
