@@ -4,11 +4,10 @@ color glow: 006080
 glowsize: 163, 51
 
 */
-
 body {
   margin: 0;
   padding: 0;
-  background-image: url('./docs/assets/Images/background.jpg');
+  background-image: url('../docs/assets/Images/background.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
 }
