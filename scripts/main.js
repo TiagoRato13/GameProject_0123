@@ -51,7 +51,7 @@ document.addEventListener("keypress", (e) => {
         walkBack.play();
         running.pause();
       }
-      if(game.theEnd){
+      if(game.theEnd || game.finished){
         walkBack.pause();
       }
       break;
@@ -66,7 +66,7 @@ document.addEventListener("keypress", (e) => {
         running.play();
         walkBack.pause();
       }
-      if(game.theEnd){
+      if(game.theEnd || game.finished){
         running.pause();
       }
       break;
@@ -76,7 +76,7 @@ document.addEventListener("keypress", (e) => {
         hero.attack = true;
         swordAttack.play()
       }
-      if(game.theEnd){
+      if(game.theEnd || game.finished){
         swordAttack.pause();
       }
       
