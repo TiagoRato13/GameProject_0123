@@ -14,9 +14,9 @@ class Game {
     this.boss = [];
     this.score = 100;
     this.image = new Image();
-    this.image.src = "/docs/assets/Images/game-background.jpg";
+    this.image.src = "./docs/assets/Images/game-background.jpg";
     this.win = new Image();
-    this.win.src = '/docs/assets/Images/youwon.jpg'
+    this.win.src = './docs/assets/Images/youwon.jpg'
     this.speed = 0;
     this.x = 0;
     this.total = 2;
@@ -47,8 +47,8 @@ class Game {
   }
 
   drawCanvas() {
-    /* this.ctx.drawImage(this.image, this.x - 10, 0); */
-    this.ctx.drawImage(this.win, 0, 0);
+    this.ctx.drawImage(this.image, this.x - 10, 0);
+    
     ctx.font = "bold 45px sens-serif";
     ctx.fillStyle = "black";
     ctx.fillText("Time:", 68, 46);
