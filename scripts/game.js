@@ -23,7 +23,7 @@ class Game {
     this.x = 0;
     this.total = 2;
     this.checkpoints = [-200, -2228, -4136, -6060, -8052];
-    this.checkpointBoss = [-10520];
+    this.checkpointBoss = [-220]; /* 10520 */
     this.theEnd = false;
     this.finished = false;
   }
@@ -71,7 +71,7 @@ class Game {
   }
 
   updateEnemies() {
-    for (let i = 0; i < this.enemies.length; i++) {
+    /* for (let i = 0; i < this.enemies.length; i++) {
       this.enemies[i].x -= 1 - this.speed;
       this.enemies[i].draw();
       metalSound.play();
@@ -84,7 +84,7 @@ class Game {
       }
       this.total++;
       this.checkpoints.shift();
-    }
+    } */
 
     //BOSS
     for (let i = 0; i < this.boss.length; i++) {
@@ -97,7 +97,7 @@ class Game {
     if (this.x === this.checkpointBoss[0]) {
       this.checkpointBoss.shift();
       for (let i = 0; i < 1; i++) {
-        this.boss.push(new Enemies(900, 200, 300, 300, 400, 10));
+        this.boss.push(new Enemies(900, 200, 300, 300, 40, 10));
       }
     }
   }
@@ -136,10 +136,8 @@ class Game {
 
   checkWin() {
     this.finished = true;
-    this.hero.walk = null;
-    this.hero.run = null;
-    this.hero.attack = null;
-    this.hero.speed = null;
+    this.stop();
+    this.hero.stop();
     skeletonWalk.pause();
     metalSound.pause();
     skeletonDie.pause();
@@ -150,8 +148,13 @@ class Game {
     running.pause();
     walkBack.pause();
     bossWalk.pause();
-    this.stop();
-
+   
+    this.hero.idle = null;
+    this.hero.walk = null;
+    this.hero.run = null;
+    this.hero.attack = null;
+    this.hero.speed = null;
+    
     ctx.fillStyle = "black";
     this.ctx.fillRect(0, 0, 1200, 600);
     this.ctx.drawImage(this.win, 0, 0);
@@ -164,6 +167,7 @@ class Game {
       ctx.fillText(this.score, 550, 280);
     }
     ctx.lineWidth = 2;
+    resetButtons.classList.remove("visibility");
   }
 
   checkGameOver() {

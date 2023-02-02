@@ -105,6 +105,9 @@ class Mage extends Component {
   start() {
     this.intervalId = setInterval(this.update, 1000 / 60);
   }
+  stop() {
+    clearInterval(this.intervalId);
+  }
   update = () => {
     this.frames++;
     this.draw();
